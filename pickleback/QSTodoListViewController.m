@@ -43,6 +43,10 @@
 
 #pragma mark * UIView methods
 
+- (void)resignKeyboard
+{
+	[itemText resignFirstResponder];
+}
 
 - (void)viewDidLoad
 {
@@ -162,6 +166,9 @@
     return [self.todoService.items count];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
 #pragma mark * UITextFieldDelegate methods
 
