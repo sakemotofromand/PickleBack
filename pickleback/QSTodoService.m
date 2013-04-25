@@ -57,13 +57,13 @@
     {
         // Initialize the Mobile Service client with your URL and key
         MSClient *client = [MSClient clientWithApplicationURLString:@"https://pickleback.azure-mobile.net/"
-                                                     applicationKey:@"ZrOAGEKtFTuJBgQeAEdHwdfBKGMRGy91"];
+                                                     applicationKey:@"KCGsOzpOVuEIFQOsUwnwgaVFQXYzYI95"];
         
         // Add a Mobile Service filter to enable the busy indicator
         self.client = [client clientWithFilter:self];
         
         // Create an MSTable instance to allow us to work with the TodoItem table
-        self.table = [_client tableWithName:@"TodoItem"];
+        self.table = [_client tableWithName:@"Item"];
         
         self.items = [[NSMutableArray alloc] init];
         self.busyCount = 0;
