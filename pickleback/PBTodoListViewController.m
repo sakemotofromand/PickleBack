@@ -15,17 +15,17 @@
 //
 
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
-#import "QSTodoListViewController.h"
-#import "QSTodoService.h"
+#import "PBTodoListViewController.h"
+#import "PBTodoService.h"
 
 
 #pragma mark * Private Interface
 
 
-@interface QSTodoListViewController ()
+@interface PBTodoListViewController ()
 
 // Private properties
-@property (strong, nonatomic)   QSTodoService   *todoService;
+@property (strong, nonatomic)   PBTodoService   *todoService;
 @property (nonatomic)           BOOL            useRefreshControl;
 
 @end
@@ -34,7 +34,7 @@
 #pragma mark * Implementation
 
 
-@implementation QSTodoListViewController
+@implementation PBTodoListViewController
 
 @synthesize todoService;
 @synthesize itemText;
@@ -53,7 +53,7 @@
     [super viewDidLoad];
     
     // Create the todoService - this creates the Mobile Service client inside the wrapped service
-    self.todoService = [QSTodoService defaultService];
+    self.todoService = [PBTodoService defaultService];
     
     // Set the busy method
     UIActivityIndicatorView *indicator = self.activityIndicator;

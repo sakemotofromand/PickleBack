@@ -14,14 +14,14 @@
 // limitations under the License.
 //
 
-#import "QSTodoService.h"
+#import "PBTodoService.h"
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 
 #pragma mark * Private interace
 
 
-@interface QSTodoService() <MSFilter>
+@interface PBTodoService() <MSFilter>
 
 @property (nonatomic, strong)   MSTable *table;
 @property (nonatomic)           NSInteger busyCount;
@@ -32,24 +32,24 @@
 #pragma mark * Implementation
 
 
-@implementation QSTodoService
+@implementation PBTodoService
 
 @synthesize items;
 
 
-+ (QSTodoService *)defaultService
++ (PBTodoService *)defaultService
 {
-    // Create a singleton instance of QSTodoService
-    static QSTodoService* service;
+    // Create a singleton instance of PBTodoService
+    static PBTodoService* service;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        service = [[QSTodoService alloc] init];
+        service = [[PBTodoService alloc] init];
     });
     
     return service;
 }
 
--(QSTodoService *)init
+-(PBTodoService *)init
 {
     self = [super init];
     

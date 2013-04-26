@@ -12,12 +12,12 @@
 		03D1002216EC579A0005A1A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1002116EC579A0005A1A9 /* CoreGraphics.framework */; };
 		03D1002816EC579A0005A1A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D1002616EC579A0005A1A9 /* InfoPlist.strings */; };
 		03D1002A16EC579A0005A1A9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002916EC579A0005A1A9 /* main.m */; };
-		03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */; };
+		03D1002E16EC579A0005A1A9 /* PBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1002D16EC579A0005A1A9 /* PBAppDelegate.m */; };
 		03D1003016EC579A0005A1A9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D1002F16EC579A0005A1A9 /* Default.png */; };
 		03D1003216EC579A0005A1A9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D1003116EC579A0005A1A9 /* Default@2x.png */; };
 		03D1003416EC579A0005A1A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D1003316EC579A0005A1A9 /* Default-568h@2x.png */; };
-		03D1004716EC58300005A1A9 /* QSTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004616EC58300005A1A9 /* QSTodoListViewController.m */; };
-		03D1004A16EC58490005A1A9 /* QSTodoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004916EC58490005A1A9 /* QSTodoService.m */; };
+		03D1004716EC58300005A1A9 /* PBTodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004616EC58300005A1A9 /* PBTodoListViewController.m */; };
+		03D1004A16EC58490005A1A9 /* PBTodoService.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D1004916EC58490005A1A9 /* PBTodoService.m */; };
 		03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */; };
 		03D1004E16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */; };
 		03D1006016EC63620005A1A9 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */; };
@@ -25,6 +25,8 @@
 		03D1006616ED41D20005A1A9 /* connected72.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D1006216ED41D20005A1A9 /* connected72.png */; };
 		03D1006716ED41D20005A1A9 /* connected114.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D1006316ED41D20005A1A9 /* connected114.png */; };
 		03D1006816ED41D20005A1A9 /* connected144.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D1006416ED41D20005A1A9 /* connected144.png */; };
+		7582B1551729EBF60046DE2F /* PBStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7582B1541729EBF60046DE2F /* PBStartViewController.m */; };
+		7582B158172A1D1C0046DE2F /* PBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7582B157172A1D1A0046DE2F /* PBHomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,15 +38,15 @@
 		03D1002716EC579A0005A1A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03D1002916EC579A0005A1A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		03D1002B16EC579A0005A1A9 /* pickleback-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pickleback-Prefix.pch"; sourceTree = "<group>"; };
-		03D1002C16EC579A0005A1A9 /* QSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSAppDelegate.h; sourceTree = "<group>"; };
-		03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSAppDelegate.m; sourceTree = "<group>"; };
+		03D1002C16EC579A0005A1A9 /* PBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBAppDelegate.h; sourceTree = "<group>"; };
+		03D1002D16EC579A0005A1A9 /* PBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBAppDelegate.m; sourceTree = "<group>"; };
 		03D1002F16EC579A0005A1A9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		03D1003116EC579A0005A1A9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		03D1003316EC579A0005A1A9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		03D1004516EC58300005A1A9 /* QSTodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSTodoListViewController.h; sourceTree = "<group>"; };
-		03D1004616EC58300005A1A9 /* QSTodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSTodoListViewController.m; sourceTree = "<group>"; };
-		03D1004816EC58490005A1A9 /* QSTodoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSTodoService.h; sourceTree = "<group>"; };
-		03D1004916EC58490005A1A9 /* QSTodoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSTodoService.m; sourceTree = "<group>"; };
+		03D1004516EC58300005A1A9 /* PBTodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTodoListViewController.h; sourceTree = "<group>"; };
+		03D1004616EC58300005A1A9 /* PBTodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTodoListViewController.m; sourceTree = "<group>"; };
+		03D1004816EC58490005A1A9 /* PBTodoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBTodoService.h; sourceTree = "<group>"; };
+		03D1004916EC58490005A1A9 /* PBTodoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBTodoService.m; sourceTree = "<group>"; };
 		03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
@@ -52,6 +54,10 @@
 		03D1006216ED41D20005A1A9 /* connected72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connected72.png; sourceTree = "<group>"; };
 		03D1006316ED41D20005A1A9 /* connected114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connected114.png; sourceTree = "<group>"; };
 		03D1006416ED41D20005A1A9 /* connected144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connected144.png; sourceTree = "<group>"; };
+		7582B1531729EBF60046DE2F /* PBStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBStartViewController.h; sourceTree = "<group>"; };
+		7582B1541729EBF60046DE2F /* PBStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBStartViewController.m; sourceTree = "<group>"; };
+		7582B156172A1D190046DE2F /* PBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBHomeViewController.h; sourceTree = "<group>"; };
+		7582B157172A1D1A0046DE2F /* PBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBHomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,14 +106,18 @@
 		03D1002316EC579A0005A1A9 /* pickleback */ = {
 			isa = PBXGroup;
 			children = (
-				03D1004816EC58490005A1A9 /* QSTodoService.h */,
-				03D1004916EC58490005A1A9 /* QSTodoService.m */,
-				03D1004516EC58300005A1A9 /* QSTodoListViewController.h */,
-				03D1004616EC58300005A1A9 /* QSTodoListViewController.m */,
+				7582B1531729EBF60046DE2F /* PBStartViewController.h */,
+				7582B1541729EBF60046DE2F /* PBStartViewController.m */,
+				7582B156172A1D190046DE2F /* PBHomeViewController.h */,
+				7582B157172A1D1A0046DE2F /* PBHomeViewController.m */,
+				03D1004816EC58490005A1A9 /* PBTodoService.h */,
+				03D1004916EC58490005A1A9 /* PBTodoService.m */,
+				03D1004516EC58300005A1A9 /* PBTodoListViewController.h */,
+				03D1004616EC58300005A1A9 /* PBTodoListViewController.m */,
 				03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */,
 				03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */,
-				03D1002C16EC579A0005A1A9 /* QSAppDelegate.h */,
-				03D1002D16EC579A0005A1A9 /* QSAppDelegate.m */,
+				03D1002C16EC579A0005A1A9 /* PBAppDelegate.h */,
+				03D1002D16EC579A0005A1A9 /* PBAppDelegate.m */,
 				03D1002416EC579A0005A1A9 /* Supporting Files */,
 			);
 			path = pickleback;
@@ -157,9 +167,9 @@
 		03D1001216EC579A0005A1A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = QS;
+				CLASSPREFIX = PB;
 				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = MobileServices;
+				ORGANIZATIONNAME = "PB&Co";
 			};
 			buildConfigurationList = 03D1001516EC579A0005A1A9 /* Build configuration list for PBXProject "pickleback" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -204,9 +214,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				03D1002A16EC579A0005A1A9 /* main.m in Sources */,
-				03D1002E16EC579A0005A1A9 /* QSAppDelegate.m in Sources */,
-				03D1004716EC58300005A1A9 /* QSTodoListViewController.m in Sources */,
-				03D1004A16EC58490005A1A9 /* QSTodoService.m in Sources */,
+				03D1002E16EC579A0005A1A9 /* PBAppDelegate.m in Sources */,
+				03D1004716EC58300005A1A9 /* PBTodoListViewController.m in Sources */,
+				03D1004A16EC58490005A1A9 /* PBTodoService.m in Sources */,
+				7582B1551729EBF60046DE2F /* PBStartViewController.m in Sources */,
+				7582B158172A1D1C0046DE2F /* PBHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

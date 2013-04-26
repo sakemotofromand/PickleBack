@@ -14,13 +14,10 @@
 // limitations under the License.
 //
 
-#import "QSAppDelegate.h"
+#import <UIKit/UIKit.h>
 
-@implementation QSAppDelegate
+@interface PBAppDelegate : UIResponder <UIApplicationDelegate>
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    return YES;
-}
+@property (strong, nonatomic) UIWindow *window;
 
 @end

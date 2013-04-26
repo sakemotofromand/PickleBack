@@ -29,13 +29,13 @@ typedef void (^QSBusyUpdateBlock) (BOOL busy);
 #pragma mark * TodoService public interface
 
 
-@interface QSTodoService : NSObject
+@interface PBTodoService : NSObject
 
 @property (nonatomic, strong)   NSArray *items;
 @property (nonatomic, strong)   MSClient *client;
 @property (nonatomic, copy)     QSBusyUpdateBlock busyUpdate;
 
-+ (QSTodoService *)defaultService;
++ (PBTodoService *)defaultService;
 
 - (void)refreshDataOnSuccess:(QSCompletionBlock)completion;
 
