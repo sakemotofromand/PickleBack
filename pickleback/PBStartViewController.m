@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    timerLabels = [[NSArray alloc] initWithObjects:@"5' reminders",@"1' reminders",@"15' reminders",@"30' reminders",@"1h reminders", nil];
+    timerLabels = [[NSArray alloc] initWithObjects:@"5'' reminders",@"1' reminders",@"15' reminders",@"30' reminders",@"1h reminders", nil];
     timerValues = [[NSArray alloc] initWithObjects:@"5",@"60",@"900",@"1800",@"3600", nil];
     pickerView.delegate = self;
     pickerView.showsSelectionIndicator = YES;

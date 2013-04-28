@@ -66,7 +66,7 @@
         shots.hidden = TRUE;
         confirmButton.hidden = TRUE;
         itemText.hidden = TRUE;
-        headerInfo.text = @"Go to Home Section";
+        headerInfo.text = @"Go Home to start new session.";
     } else
     {
         beersLabel.hidden = FALSE;
