@@ -12,18 +12,23 @@
 {
 	IBOutlet UIPickerView *pickerView;
     IBOutlet UILabel *timerCountLabel;
+    IBOutlet UILabel *sessionStatsLabel;
     IBOutlet UIButton *startButton;
     IBOutlet UIButton *stopButton;
-    NSTimer *timer;
-    int timerCount;
+    NSArray *timerLabels;
+    NSArray *timerValues;
 }
+
 @property (nonatomic, strong) IBOutlet UILabel *timerCountLabel;
+@property (nonatomic, strong) IBOutlet UILabel *sessionStatsLabel;
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 @property (nonatomic, strong) IBOutlet UIButton *startButton;
 @property (nonatomic, strong) IBOutlet UIButton *stopButton;
 
-- (void)increaseTimerCount;
-- (IBAction)startTimer;
-- (IBAction)stopTimer;
+- (void)decreaseTimerCount;
+- (IBAction)startSession;
+- (IBAction)stopSession;
+- (void)resetTimer;
+- (void)initTimer;
 
 @end

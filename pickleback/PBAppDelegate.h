@@ -17,7 +17,26 @@
 #import <UIKit/UIKit.h>
 
 @interface PBAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    UIBackgroundTaskIdentifier bgTask;
+    int sessionId;
+    int sessionDrinks;
+    NSDate *sessionStart;
+    int timerSecondsLeft;
+    int timerInitialSecondsLeft;
+    NSTimer *timer;
+    NSDate *timerStart;
+    IBOutlet UITabBarController *tabBar;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (assign, nonatomic) int sessionId;
+@property (assign, nonatomic) int sessionDrinks;
+@property (strong, nonatomic) NSDate *sessionStart;
+@property (assign, nonatomic) int timerSecondsLeft;
+@property (assign, nonatomic) int timerInitialSecondsLeft;
+@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) NSDate *timerStart;
+@property (strong, nonatomic) IBOutlet UITabBarController *tabBar;
 
 @end

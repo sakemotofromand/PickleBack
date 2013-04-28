@@ -17,6 +17,7 @@
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 #import "PBTodoListViewController.h"
 #import "PBTodoService.h"
+#import "PBAppDelegate.h"
 
 
 #pragma mark * Private Interface
@@ -39,6 +40,8 @@
 @synthesize todoService;
 @synthesize itemText;
 @synthesize activityIndicator;
+@synthesize beers, wines, mixed, shots;
+@synthesize beersLabel, winesLabel, mixedLabel, shotsLabel, confirmButton, headerInfo;
 
 
 #pragma mark * UIView methods
@@ -46,6 +49,38 @@
 - (void)resignKeyboard
 {
 	[itemText resignFirstResponder];
+}
+
+- (void)initView
+{
+    PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.sessionId == 0)
+    {
+        beersLabel.hidden = TRUE;
+        winesLabel.hidden = TRUE;
+        mixedLabel.hidden = TRUE;
+        shotsLabel.hidden = TRUE;
+        beers.hidden = TRUE;
+        wines.hidden = TRUE;
+        mixed.hidden = TRUE;
+        shots.hidden = TRUE;
+        confirmButton.hidden = TRUE;
+        itemText.hidden = TRUE;
+        headerInfo.text = @"Go to Home Section";
+    } else
+    {
+        beersLabel.hidden = FALSE;
+        winesLabel.hidden = FALSE;
+        mixedLabel.hidden = FALSE;
+        shotsLabel.hidden = FALSE;
+        beers.hidden = FALSE;
+        wines.hidden = FALSE;
+        mixed.hidden = FALSE;
+        shots.hidden = FALSE;
+        confirmButton.hidden = FALSE;
+        itemText.hidden = TRUE;
+        headerInfo.text = @"How many drinks have you had since your last check in?";
+    }
 }
 
 - (void)viewDidLoad
@@ -73,6 +108,17 @@
     
     // load the data
     [self refresh];
+    beersValue = 0;
+    winesValue = 0;
+    mixedValue = 0;
+    shotsValue = 0;
+    [self initView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self initView];
+    
 }
 
 - (void) refresh
@@ -88,6 +134,7 @@
         }
         [self.tableView reloadData];
     }];
+    [self initView];
 }
 
 
@@ -149,8 +196,13 @@
     UILabel *label = (UILabel *)[cell viewWithTag:1];
     label.textColor = [UIColor blackColor];
     NSDictionary *item = [self.todoService.items objectAtIndex:indexPath.row];
-    label.text = [item objectForKey:@"text"];
-    
+    NSString *drinkType;
+    if ([[item objectForKey:@"type"] isEqualToString:@"0"]) drinkType = @"Beers";
+    if ([[item objectForKey:@"type"] isEqualToString:@"1"]) drinkType = @"Wines";
+    if ([[item objectForKey:@"type"] isEqualToString:@"2"]) drinkType = @"Mixed";
+    if ([[item objectForKey:@"type"] isEqualToString:@"3"]) drinkType = @"Shots";
+    label.text = [NSString stringWithFormat:@"%@ %@ by %@",[item objectForKey:@"count"], drinkType, [NSDate date]];
+    [label sizeToFit];
     return cell;
 }
 
@@ -185,21 +237,83 @@
 
 - (IBAction)onAdd:(id)sender
 {
-    if (itemText.text.length  == 0)
+    if (beersValue + winesValue + mixedValue + shotsValue == 0)
     {
         return;
     }
     
-    NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @NO };
+    //NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @NO, @"time" : [NSDate date]  };
+    NSDictionary *itemBeers = NULL;
+    NSDictionary *itemWines = NULL;
+    NSDictionary *itemMixed = NULL;
+    NSDictionary *itemShots = NULL;
+   
     UITableView *view = self.tableView;
-    [self.todoService addItem:item completion:^(NSUInteger index)
-    {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-        [view insertRowsAtIndexPaths:@[ indexPath ]
-                    withRowAnimation:UITableViewRowAnimationTop];
-    }];
+    PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    if (beersValue > 0)
+    {
+        NSLog(@"I have beer!");
+        itemBeers = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"0", @"count" : [NSString stringWithFormat:@"%d",beersValue], @"complete" : @YES, @"time" : [NSDate date]  };
+        [self.todoService addItem:itemBeers completion:^(NSUInteger index)
+         {
+             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+             [view insertRowsAtIndexPaths:@[ indexPath ]
+                         withRowAnimation:UITableViewRowAnimationTop];
+         }];
+    }
+
+    if (winesValue > 0)
+    {
+        NSLog(@"I have wine!");
+        itemWines = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"1", @"count" : [NSString stringWithFormat:@"%d",winesValue], @"complete" : @YES, @"time" : [NSDate date]  };
+        [self.todoService addItem:itemWines completion:^(NSUInteger index)
+         {
+             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+             [view insertRowsAtIndexPaths:@[ indexPath ]
+                         withRowAnimation:UITableViewRowAnimationTop];
+         }];
+    }
+
+    if (mixedValue > 0)
+    {
+        NSLog(@"I have mixed!");
+        itemMixed = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"2", @"count" : [NSString stringWithFormat:@"%d",mixedValue], @"complete" : @YES, @"time" : [NSDate date]  };
+        [self.todoService addItem:itemMixed completion:^(NSUInteger index)
+         {
+             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+             [view insertRowsAtIndexPaths:@[ indexPath ]
+                         withRowAnimation:UITableViewRowAnimationTop];
+         }];
+    }
+
+    if (shotsValue > 0)
+    {
+        NSLog(@"I have shots!");
+        itemShots = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"3", @"count" : [NSString stringWithFormat:@"%d",shotsValue], @"complete" : @YES, @"time" : [NSDate date]  };
+        [self.todoService addItem:itemShots completion:^(NSUInteger index)
+         {
+             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+             [view insertRowsAtIndexPaths:@[ indexPath ]
+                         withRowAnimation:UITableViewRowAnimationTop];
+         }];
+    }
+
     itemText.text = @"";
+    beersLabel.text = @"0 beers";
+    winesLabel.text = @"0 wines";
+    mixedLabel.text = @"0 mixed";
+    shotsLabel.text = @"0 shots";
+    beers.value = 0;
+    wines.value = 0;
+    mixed.value = 0;
+    shots.value = 0;
+    appDelegate.sessionDrinks = appDelegate.sessionDrinks + beersValue + winesValue + mixedValue + shotsValue;
+    beersValue = 0;
+    winesValue = 0;
+    mixedValue = 0;
+    shotsValue = 0;
+    appDelegate.tabBar.selectedIndex = 0;
 }
 
 
@@ -226,6 +340,31 @@
 {
     [self refresh];
 }
+
+- (IBAction)valueBeersChanged:(UIStepper*) sender
+{
+    beersValue = [sender value];
+    [beersLabel setText:[NSString stringWithFormat:@"%d beers",beersValue]];
+}
+
+- (IBAction)valueWinesChanged:(UIStepper*) sender
+{
+    winesValue = [sender value];
+    [winesLabel setText:[NSString stringWithFormat:@"%d wines",winesValue]];
+}
+
+- (IBAction)valueMixedChanged:(UIStepper*) sender
+{
+    mixedValue = [sender value];
+    [mixedLabel setText:[NSString stringWithFormat:@"%d mixed",mixedValue]];
+}
+
+- (IBAction)valueShotsChanged:(UIStepper*) sender
+{
+    shotsValue = [sender value];
+    [shotsLabel setText:[NSString stringWithFormat:@"%d shots",shotsValue]];
+}
+
 
 
 @end
