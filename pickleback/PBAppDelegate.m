@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // ----------------------------------------------------------------------------
 //
@@ -37,7 +37,8 @@
     tabBar = (UITabBarController*)self.window.rootViewController;
     //Handle launching from a notification
     if (timer != nil) [timer invalidate];
-    timerSecondsLeft = 0;
+    timerSecondsLeft = 5; //first position of the array, otherwise it doesn't work if user doesnt touch the picker view
+    timerInitialSecondsLeft = 5;
     sessionId = 0;
     sessionDrinks = 0;
     UILocalNotification *localNotif =
@@ -48,7 +49,8 @@
     return YES;
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     tabBar.selectedIndex = 1;
 }
 
@@ -66,17 +68,18 @@
     [self performSelector:@selector(dismissAlert:) withObject:alertView afterDelay:timerInitialSecondsLeft-2];
  }
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notif {
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notif
+{
 
     if (sessionId == 0) return;
 
-    NSLog(@"application: didReceiveLocalNotification:");
+    NSLog(@"Application: didReceiveLocalNotification:");
     NSLog(@"Receive Local Notification while the app is still running...");
-    NSLog(@"current notification is %@",notif);
+    NSLog(@"Current notification is %@",notif);
     //[application presentLocalNotificationNow:notif];
     if (application.applicationState == UIApplicationStateActive)[self _showAlert:@"How many drinks have you had?" withTitle:@"pickleback"];
-
     application.applicationIconBadgeNumber = notif.applicationIconBadgeNumber-1;
+    tabBar.selectedIndex = 1;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

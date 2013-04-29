@@ -32,8 +32,7 @@
     pickerView.delegate = self;
     pickerView.showsSelectionIndicator = YES;
     [self.view addSubview:pickerView];
-    PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.timerInitialSecondsLeft = 5;
+    //PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     startButton.hidden = FALSE;
     stopButton.hidden = TRUE;
     pickerView.hidden = FALSE;
@@ -66,7 +65,8 @@
 {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.timerInitialSecondsLeft = [[timerValues objectAtIndex:row] intValue];
-    appDelegate.timerSecondsLeft = [[timerValues objectAtIndex:row] intValue];
+    appDelegate.timerSecondsLeft =  appDelegate.timerInitialSecondsLeft;
+    NSLog(@"Seconds according to pickerView selection: %d", appDelegate.timerInitialSecondsLeft);
 }
 
 // tell the picker how many rows are available for a given component
@@ -111,7 +111,7 @@
         int hours = appDelegate.timerSecondsLeft / 3600;
         int minutes = (appDelegate.timerSecondsLeft % 3600) / 60;
         int seconds = (appDelegate.timerSecondsLeft %3600) % 60;
-        timerCountLabel.text = [NSString stringWithFormat:@"Time until next check-in: %02d:%02d:%02d", hours, minutes, seconds];
+        timerCountLabel.text = [NSString stringWithFormat:@"Next check-in in %02d:%02d:%02d", hours, minutes, seconds];
     } else
     {
         [self resetTimer];
@@ -122,21 +122,22 @@
 {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     int timerSecondsLeft = appDelegate.timerInitialSecondsLeft;
+    appDelegate.timerSecondsLeft = appDelegate.timerInitialSecondsLeft;
     int hours = timerSecondsLeft / 3600;
     int minutes = (timerSecondsLeft % 3600) / 60;
     int seconds = (timerSecondsLeft % 3600) % 60;
-    timerCountLabel.text = [NSString stringWithFormat:@"Time until next check-in: %02d:%02d:%02d", hours, minutes, seconds];
+    timerCountLabel.text = [NSString stringWithFormat:@"Next check-in in %02d:%02d:%02d", hours, minutes, seconds];
     timerCountLabel.numberOfLines = 2;
     appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decreaseTimerCount) userInfo:nil repeats:YES];
     NSDate *now = [NSDate date];
-    NSLog(@"now is %@",now);
+    NSLog(@"Now is %@",now);
     appDelegate.timerStart = now;
     NSDate *scheduled = [now dateByAddingTimeInterval:timerSecondsLeft] ; //get x minute after
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit;
-    NSDateComponents *comp = [calendar components:unitFlags fromDate:scheduled];
+    //NSCalendar *calendar = [NSCalendar currentCalendar];
+    //unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit;
+    //NSDateComponents *comp = [calendar components:unitFlags fromDate:scheduled];
     
-    NSLog(@"scheduled is %@",scheduled);
+    NSLog(@"Scheduled is %@",scheduled);
     
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)
@@ -156,11 +157,6 @@
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 
-}
-
-- (IBAction)startTimer
-{
-    [self initTimer];
 }
 
 - (void)resetTimer
@@ -196,7 +192,8 @@
     stopButton.hidden = TRUE;
     pickerView.hidden = FALSE;
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    //   [timer release];
+    appDelegate.tabBar.selectedIndex = 2;
+    //[timer release];
 }
 
 
