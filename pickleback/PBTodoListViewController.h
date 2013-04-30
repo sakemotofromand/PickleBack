@@ -15,17 +15,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#define MAX_DRINKS_TYPE 4
 
 @interface PBTodoListViewController : UITableViewController
 {
-    int beersValue;
-    int winesValue;
-    int mixedValue;
-    int shotsValue;
+    int drinksValue[MAX_DRINKS_TYPE];
 }
 
-@property (weak, nonatomic) IBOutlet UITextField                *itemText;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView    *activityIndicator;
+@property (weak, nonatomic) IBOutlet UITextField *itemText;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) IBOutlet UIStepper *beers;
 @property (nonatomic, strong) IBOutlet UIStepper *wines;
 @property (nonatomic, strong) IBOutlet UIStepper *mixed;
@@ -38,9 +36,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *headerInfo;
 
 - (IBAction)onAdd:(id)sender;
-- (IBAction)valueBeersChanged:(UIStepper*) sender;
-- (IBAction)valueWinesChanged:(UIStepper*) sender;
-- (IBAction)valueMixedChanged:(UIStepper*) sender;
-- (IBAction)valueShotsChanged:(UIStepper*) sender;
+- (IBAction)valueStepperChanged:(UIStepper*) sender;
+
 
 @end

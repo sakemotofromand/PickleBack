@@ -103,15 +103,15 @@
         }
     };
     
+    /*Disabled for now
     // add the refresh control to the table (iOS6+ only)
     [self addRefreshControl];
     
     // load the data
     [self refresh];
-    beersValue = 0;
-    winesValue = 0;
-    mixedValue = 0;
-    shotsValue = 0;
+    */
+    //Init all counters for drink types
+    for (int i=0; i < MAX_DRINKS_TYPE; i++) drinksValue[i] = 0;
     [self initView];
 }
 
@@ -234,71 +234,31 @@
 
 #pragma mark * UI Actions
 
-
 - (IBAction)onAdd:(id)sender
 {
-    if (beersValue + winesValue + mixedValue + shotsValue == 0)
+    if (drinksValue[0] + drinksValue[1] + drinksValue[2] + drinksValue[3] == 0)
     {
         return;
     }
-    
-    //NSDictionary *item = @{ @"text" : itemText.text, @"complete" : @NO, @"time" : [NSDate date]  };
-    NSDictionary *itemBeers = NULL;
-    NSDictionary *itemWines = NULL;
-    NSDictionary *itemMixed = NULL;
-    NSDictionary *itemShots = NULL;
-   
+    NSDictionary *item = NULL;
     UITableView *view = self.tableView;
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    if (beersValue > 0)
+    for (int i = 0;i < MAX_DRINKS_TYPE;i++)
     {
-        NSLog(@"I have beer!");
-        itemBeers = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"0", @"count" : [NSString stringWithFormat:@"%d",beersValue], @"complete" : @YES, @"time" : [NSDate date]  };
-        [self.todoService addItem:itemBeers completion:^(NSUInteger index)
-         {
-             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-             [view insertRowsAtIndexPaths:@[ indexPath ]
+        int value = drinksValue[i];
+        if (value > 0)
+        {
+            item = @{ @"userID" :appDelegate.secureUDID, @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"time" : [NSDate date], @"type" : [NSString stringWithFormat:@"%d",i], @"count" : [NSString stringWithFormat:@"%d",value], @"complete" : @YES };
+            [self.todoService addItem:item completion:^(NSUInteger index)
+             {
+                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+                 [view insertRowsAtIndexPaths:@[ indexPath ]
                          withRowAnimation:UITableViewRowAnimationTop];
-         }];
+             }];
+        }
+        appDelegate.sessionDrinks = appDelegate.sessionDrinks + value;
+        drinksValue[i] = 0;
     }
-
-    if (winesValue > 0)
-    {
-        NSLog(@"I have wine!");
-        itemWines = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"1", @"count" : [NSString stringWithFormat:@"%d",winesValue], @"complete" : @YES, @"time" : [NSDate date]  };
-        [self.todoService addItem:itemWines completion:^(NSUInteger index)
-         {
-             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-             [view insertRowsAtIndexPaths:@[ indexPath ]
-                         withRowAnimation:UITableViewRowAnimationTop];
-         }];
-    }
-
-    if (mixedValue > 0)
-    {
-        NSLog(@"I have mixed!");
-        itemMixed = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"2", @"count" : [NSString stringWithFormat:@"%d",mixedValue], @"complete" : @YES, @"time" : [NSDate date]  };
-        [self.todoService addItem:itemMixed completion:^(NSUInteger index)
-         {
-             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-             [view insertRowsAtIndexPaths:@[ indexPath ]
-                         withRowAnimation:UITableViewRowAnimationTop];
-         }];
-    }
-
-    if (shotsValue > 0)
-    {
-        NSLog(@"I have shots!");
-        itemShots = @{ @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"type" : @"3", @"count" : [NSString stringWithFormat:@"%d",shotsValue], @"complete" : @YES, @"time" : [NSDate date]  };
-        [self.todoService addItem:itemShots completion:^(NSUInteger index)
-         {
-             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-             [view insertRowsAtIndexPaths:@[ indexPath ]
-                         withRowAnimation:UITableViewRowAnimationTop];
-         }];
-    }
-
     itemText.text = @"";
     beersLabel.text = @"0 beers";
     winesLabel.text = @"0 wines";
@@ -308,11 +268,6 @@
     wines.value = 0;
     mixed.value = 0;
     shots.value = 0;
-    appDelegate.sessionDrinks = appDelegate.sessionDrinks + beersValue + winesValue + mixedValue + shotsValue;
-    beersValue = 0;
-    winesValue = 0;
-    mixedValue = 0;
-    shotsValue = 0;
     appDelegate.tabBar.selectedIndex = 0;
 }
 
@@ -341,30 +296,24 @@
     [self refresh];
 }
 
-- (IBAction)valueBeersChanged:(UIStepper*) sender
+- (IBAction)valueStepperChanged:(UIStepper*) sender
 {
-    beersValue = [sender value];
-    [beersLabel setText:[NSString stringWithFormat:@"%d beers",beersValue]];
+    drinksValue[sender.tag] = [sender value];
+    switch (sender.tag) {
+        case 0:
+            [beersLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d beer":@"%d beers",drinksValue[sender.tag]]];
+            break;
+        case 1:
+            [winesLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d beer":@"%d wines",drinksValue[sender.tag]]];
+            break;
+        case 2:
+            [mixedLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d mixed":@"%d mixeds",drinksValue[sender.tag]]];
+            break;
+        case 3:
+            [shotsLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d shot":@"%d shots",drinksValue[sender.tag]]];
+            break;
+        }
 }
-
-- (IBAction)valueWinesChanged:(UIStepper*) sender
-{
-    winesValue = [sender value];
-    [winesLabel setText:[NSString stringWithFormat:@"%d wines",winesValue]];
-}
-
-- (IBAction)valueMixedChanged:(UIStepper*) sender
-{
-    mixedValue = [sender value];
-    [mixedLabel setText:[NSString stringWithFormat:@"%d mixed",mixedValue]];
-}
-
-- (IBAction)valueShotsChanged:(UIStepper*) sender
-{
-    shotsValue = [sender value];
-    [shotsLabel setText:[NSString stringWithFormat:@"%d shots",shotsValue]];
-}
-
 
 
 @end

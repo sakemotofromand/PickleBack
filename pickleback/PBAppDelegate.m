@@ -15,6 +15,9 @@
 //
 
 #import "PBAppDelegate.h"
+#import "OpenUDID.h"
+#import "SecureUDID.h"
+
 
 @implementation PBAppDelegate
 
@@ -26,9 +29,7 @@
 @synthesize timer;
 @synthesize timerStart;
 @synthesize timerInitialSecondsLeft;
-
-#define ToDoItemKey @"EVENTKEY1"
-#define MessageTitleKey @"MSGKEY1"
+@synthesize secureUDID;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -46,7 +47,18 @@
     if (localNotif) {
         NSLog(@"Recieved Notification %@",localNotif);
     }
+    /* Use following code to create open ID
+    NSString* openUDID = [OpenUDID value];
+    NSLog(@"openUDID: %@",openUDID);
+    */
+    //Use following code to create secure ID
+    NSString *domain = @"com.PBCo.pickleback";
+    NSString *key = @"picklebacksareverygood111222333";
+    secureUDID = [SecureUDID UDIDForDomain:domain usingKey:key];
+    NSLog(@"secureUDID: %@",secureUDID);
+    
     return YES;
+
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -54,6 +66,7 @@
     tabBar.selectedIndex = 1;
 }
 
+/*
 - (void) dismissAlert:(UIAlertView*) alertView
 {
     [alertView dismissWithClickedButtonIndex:-1 animated:YES];
@@ -67,17 +80,16 @@
     [alertView show];
     [self performSelector:@selector(dismissAlert:) withObject:alertView afterDelay:timerInitialSecondsLeft-2];
  }
+*/
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notif
 {
-
     if (sessionId == 0) return;
-
     NSLog(@"Application: didReceiveLocalNotification:");
     NSLog(@"Receive Local Notification while the app is still running...");
     NSLog(@"Current notification is %@",notif);
     //[application presentLocalNotificationNow:notif];
-    if (application.applicationState == UIApplicationStateActive)[self _showAlert:@"How many drinks have you had?" withTitle:@"pickleback"];
+    //if (application.applicationState == UIApplicationStateActive)[self _showAlert:@"How many drinks have you had?" withTitle:@"pickleback"];
     application.applicationIconBadgeNumber = notif.applicationIconBadgeNumber-1;
     tabBar.selectedIndex = 1;
 }

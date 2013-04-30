@@ -21,6 +21,8 @@
 		03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */; };
 		03D1004E16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */; };
 		03D1006016EC63620005A1A9 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */; };
+		75597C23172F36AD009B1EB7 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 75597C22172F36AD009B1EB7 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75597C26172F38DA009B1EB7 /* SecureUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 75597C25172F38DA009B1EB7 /* SecureUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7582B1551729EBF60046DE2F /* PBStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7582B1541729EBF60046DE2F /* PBStartViewController.m */; };
 		7582B158172A1D1C0046DE2F /* PBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7582B157172A1D1A0046DE2F /* PBHomeViewController.m */; };
 		7582B15D172B27350046DE2F /* pickleback57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7582B159172B27350046DE2F /* pickleback57.png */; };
@@ -50,6 +52,10 @@
 		03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
+		75597C21172F36AD009B1EB7 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
+		75597C22172F36AD009B1EB7 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
+		75597C24172F38DA009B1EB7 /* SecureUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecureUDID.h; path = ../SecureUDID.h; sourceTree = "<group>"; };
+		75597C25172F38DA009B1EB7 /* SecureUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecureUDID.m; path = ../SecureUDID.m; sourceTree = "<group>"; };
 		7582B1531729EBF60046DE2F /* PBStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBStartViewController.h; sourceTree = "<group>"; };
 		7582B1541729EBF60046DE2F /* PBStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBStartViewController.m; sourceTree = "<group>"; };
 		7582B156172A1D190046DE2F /* PBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBHomeViewController.h; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		03D1002316EC579A0005A1A9 /* pickleback */ = {
 			isa = PBXGroup;
 			children = (
+				75597C27172F38EF009B1EB7 /* UDID */,
 				7582B1531729EBF60046DE2F /* PBStartViewController.h */,
 				7582B1541729EBF60046DE2F /* PBStartViewController.m */,
 				7582B156172A1D190046DE2F /* PBHomeViewController.h */,
@@ -139,6 +146,17 @@
 				03D1003316EC579A0005A1A9 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75597C27172F38EF009B1EB7 /* UDID */ = {
+			isa = PBXGroup;
+			children = (
+				75597C24172F38DA009B1EB7 /* SecureUDID.h */,
+				75597C25172F38DA009B1EB7 /* SecureUDID.m */,
+				75597C21172F36AD009B1EB7 /* OpenUDID.h */,
+				75597C22172F36AD009B1EB7 /* OpenUDID.m */,
+			);
+			name = UDID;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +237,8 @@
 				03D1004A16EC58490005A1A9 /* PBTodoService.m in Sources */,
 				7582B1551729EBF60046DE2F /* PBStartViewController.m in Sources */,
 				7582B158172A1D1C0046DE2F /* PBHomeViewController.m in Sources */,
+				75597C23172F36AD009B1EB7 /* OpenUDID.m in Sources */,
+				75597C26172F38DA009B1EB7 /* SecureUDID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

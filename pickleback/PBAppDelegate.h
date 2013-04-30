@@ -1,4 +1,4 @@
-﻿// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // ----------------------------------------------------------------------------
 //
@@ -27,6 +27,7 @@
     NSTimer *timer;
     NSDate *timerStart;
     IBOutlet UITabBarController *tabBar;
+    NSString *secureUDID;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -38,5 +39,6 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSDate *timerStart;
 @property (strong, nonatomic) IBOutlet UITabBarController *tabBar;
+@property (strong, nonatomic) NSString *secureUDID;
 
 @end

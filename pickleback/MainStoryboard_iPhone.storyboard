@@ -62,28 +62,28 @@
                                     <rect key="frame" x="24" y="107" width="94" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <connections>
-                                        <action selector="valueBeersChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="six-z0-oW0"/>
+                                        <action selector="valueStepperChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="u1Z-0M-0CV"/>
                                     </connections>
                                 </stepper>
-                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="YVV-xF-Wuz">
+                                <stepper opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="YVV-xF-Wuz">
                                     <rect key="frame" x="24" y="143" width="94" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <connections>
-                                        <action selector="valueWinesChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="1Kl-nG-shg"/>
+                                        <action selector="valueStepperChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="WMG-NE-mKN"/>
                                     </connections>
                                 </stepper>
-                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="HCb-tM-cSq">
+                                <stepper opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="HCb-tM-cSq">
                                     <rect key="frame" x="24" y="178" width="94" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <connections>
-                                        <action selector="valueMixedChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="oB4-qi-utG"/>
+                                        <action selector="valueStepperChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="Nkt-c2-j68"/>
                                     </connections>
                                 </stepper>
-                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="HPG-QU-CCh">
+                                <stepper opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="HPG-QU-CCh">
                                     <rect key="frame" x="24" y="212" width="94" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <connections>
-                                        <action selector="valueShotsChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="igC-Mw-FEv"/>
+                                        <action selector="valueStepperChanged:" destination="PsD-7a-zsW" eventType="valueChanged" id="9QS-hu-UXz"/>
                                     </connections>
                                 </stepper>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 beers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7oa-ud-WuD">
@@ -118,7 +118,7 @@
                             <color key="backgroundColor" red="0.35138999355116407" green="0.72893445696778558" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="kgS-w8-LCj">
+                            <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="kgS-w8-LCj">
                                 <rect key="frame" x="0.0" y="322" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -319,10 +319,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PBTodoListViewController.h"/>
             <relationships>
                 <relationship kind="action" name="onAdd:"/>
-                <relationship kind="action" name="valueBeersChanged:" candidateClass="UIStepper"/>
-                <relationship kind="action" name="valueMixedChanged:" candidateClass="UIStepper"/>
-                <relationship kind="action" name="valueShotsChanged:" candidateClass="UIStepper"/>
-                <relationship kind="action" name="valueWinesChanged:" candidateClass="UIStepper"/>
+                <relationship kind="action" name="valueStepperChanged:" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="beers" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="beersLabel" candidateClass="UILabel"/>
