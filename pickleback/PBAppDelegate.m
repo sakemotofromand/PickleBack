@@ -51,12 +51,18 @@
     NSString* openUDID = [OpenUDID value];
     NSLog(@"openUDID: %@",openUDID);
     */
+    
     //Use following code to create secure ID
     NSString *domain = @"com.PBCo.pickleback";
     NSString *key = @"picklebacksareverygood111222333";
     secureUDID = [SecureUDID UDIDForDomain:domain usingKey:key];
     NSLog(@"secureUDID: %@",secureUDID);
     
+    //Now we load data from file
+        NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Data"];
+
+ NSArray *contentArray = [[NSArray alloc] initWithContentsOfFile:path];
+    NSLog(@"I load %d",[contentArray count]);
     return YES;
 
 }

@@ -37,14 +37,15 @@ typedef void (^QSBusyUpdateBlock) (BOOL busy);
 
 + (PBTodoService *)defaultService;
 
-- (void)refreshDataOnSuccess:(QSCompletionBlock)completion;
+//- (void)refreshDataOnSuccess:(QSCompletionBlock)completion;
+- (void)getUserData:(QSCompletionBlock)completion;
 
 - (void)addItem:(NSDictionary *)item
      completion:(QSCompletionWithIndexBlock)completion;
-
+/*
 - (void)completeItem:(NSDictionary *)item
           completion:(QSCompletionWithIndexBlock)completion;
-
+*/
 
 - (void)handleRequest:(NSURLRequest *)request
                  next:(MSFilterNextBlock)next

@@ -17,7 +17,8 @@
 #import <UIKit/UIKit.h>
 #define MAX_DRINKS_TYPE 4
 
-@interface PBTodoListViewController : UITableViewController
+//@interface PBTodoListViewController : UITableViewController
+@interface PBTodoListViewController : UIViewController
 {
     int drinksValue[MAX_DRINKS_TYPE];
 }

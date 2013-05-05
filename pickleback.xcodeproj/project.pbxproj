@@ -29,6 +29,13 @@
 		7582B15E172B27350046DE2F /* pickleback72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7582B15A172B27350046DE2F /* pickleback72.png */; };
 		7582B15F172B27350046DE2F /* pickleback114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7582B15B172B27350046DE2F /* pickleback114.png */; };
 		7582B160172B27350046DE2F /* pickleback144.png in Resources */ = {isa = PBXBuildFile; fileRef = 7582B15C172B27350046DE2F /* pickleback144.png */; };
+		75B168831731CF35004710A8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B1687E1731CF35004710A8 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75B168841731CF35004710A8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168801731CF35004710A8 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75B168851731CF35004710A8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168821731CF35004710A8 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75B168881731CF59004710A8 /* Datastore.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168871731CF59004710A8 /* Datastore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75B1688A1731CF7A004710A8 /* pickleback.db in Resources */ = {isa = PBXBuildFile; fileRef = 75B168891731CF7A004710A8 /* pickleback.db */; };
+		75B1688D1731CFEB004710A8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B1688B1731CFEB004710A8 /* libsqlite3.0.dylib */; };
+		75B1688E1731CFEB004710A8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B1688C1731CFEB004710A8 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +71,17 @@
 		7582B15A172B27350046DE2F /* pickleback72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickleback72.png; sourceTree = "<group>"; };
 		7582B15B172B27350046DE2F /* pickleback114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickleback114.png; sourceTree = "<group>"; };
 		7582B15C172B27350046DE2F /* pickleback144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickleback144.png; sourceTree = "<group>"; };
+		75B1687D1731CF35004710A8 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		75B1687E1731CF35004710A8 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		75B1687F1731CF35004710A8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		75B168801731CF35004710A8 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		75B168811731CF35004710A8 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		75B168821731CF35004710A8 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		75B168861731CF59004710A8 /* Datastore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Datastore.h; sourceTree = "<group>"; };
+		75B168871731CF59004710A8 /* Datastore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Datastore.m; sourceTree = "<group>"; };
+		75B168891731CF7A004710A8 /* pickleback.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = pickleback.db; path = pickleback/pickleback.db; sourceTree = "<group>"; };
+		75B1688B1731CFEB004710A8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		75B1688C1731CFEB004710A8 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B1688D1731CFEB004710A8 /* libsqlite3.0.dylib in Frameworks */,
+				75B1688E1731CFEB004710A8 /* libsqlite3.dylib in Frameworks */,
 				03D1001E16EC579A0005A1A9 /* UIKit.framework in Frameworks */,
 				03D1002016EC579A0005A1A9 /* Foundation.framework in Frameworks */,
 				03D1002216EC579A0005A1A9 /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +104,9 @@
 		03D1001116EC579A0005A1A9 = {
 			isa = PBXGroup;
 			children = (
+				75B1688B1731CFEB004710A8 /* libsqlite3.0.dylib */,
+				75B168891731CF7A004710A8 /* pickleback.db */,
+				75B1688C1731CFEB004710A8 /* libsqlite3.dylib */,
 				03D1002316EC579A0005A1A9 /* pickleback */,
 				03D1001C16EC579A0005A1A9 /* Frameworks */,
 				03D1001B16EC579A0005A1A9 /* Products */,
@@ -112,6 +135,7 @@
 		03D1002316EC579A0005A1A9 /* pickleback */ = {
 			isa = PBXGroup;
 			children = (
+				75B1687C1731CEE7004710A8 /* Database */,
 				75597C27172F38EF009B1EB7 /* UDID */,
 				7582B1531729EBF60046DE2F /* PBStartViewController.h */,
 				7582B1541729EBF60046DE2F /* PBStartViewController.m */,
@@ -157,6 +181,21 @@
 				75597C22172F36AD009B1EB7 /* OpenUDID.m */,
 			);
 			name = UDID;
+			sourceTree = "<group>";
+		};
+		75B1687C1731CEE7004710A8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				75B168861731CF59004710A8 /* Datastore.h */,
+				75B168871731CF59004710A8 /* Datastore.m */,
+				75B1687D1731CF35004710A8 /* FMDatabase.h */,
+				75B1687E1731CF35004710A8 /* FMDatabase.m */,
+				75B1687F1731CF35004710A8 /* FMDatabaseAdditions.h */,
+				75B168801731CF35004710A8 /* FMDatabaseAdditions.m */,
+				75B168811731CF35004710A8 /* FMResultSet.h */,
+				75B168821731CF35004710A8 /* FMResultSet.m */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +260,7 @@
 				7582B15E172B27350046DE2F /* pickleback72.png in Resources */,
 				7582B15F172B27350046DE2F /* pickleback114.png in Resources */,
 				7582B160172B27350046DE2F /* pickleback144.png in Resources */,
+				75B1688A1731CF7A004710A8 /* pickleback.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +279,10 @@
 				7582B158172A1D1C0046DE2F /* PBHomeViewController.m in Sources */,
 				75597C23172F36AD009B1EB7 /* OpenUDID.m in Sources */,
 				75597C26172F38DA009B1EB7 /* SecureUDID.m in Sources */,
+				75B168831731CF35004710A8 /* FMDatabase.m in Sources */,
+				75B168841731CF35004710A8 /* FMDatabaseAdditions.m in Sources */,
+				75B168851731CF35004710A8 /* FMResultSet.m in Sources */,
+				75B168881731CF59004710A8 /* Datastore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

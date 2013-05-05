@@ -18,6 +18,7 @@
 #import "PBTodoListViewController.h"
 #import "PBTodoService.h"
 #import "PBAppDelegate.h"
+#import "Datastore.h"
 
 
 #pragma mark * Private Interface
@@ -89,7 +90,7 @@
     
     // Create the todoService - this creates the Mobile Service client inside the wrapped service
     self.todoService = [PBTodoService defaultService];
-    
+    //self.tableView.scrollEnabled = FALSE;
     // Set the busy method
     UIActivityIndicatorView *indicator = self.activityIndicator;
     self.todoService.busyUpdate = ^(BOOL busy)
@@ -118,9 +119,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self initView];
+    [self.todoService getUserData:^
+     {
+         NSLog(@"Done!");
+         //[self.tableView reloadData];
+     }];
     
 }
 
+/*
 - (void) refresh
 {
     // only activate the refresh control if the feature is available
@@ -136,11 +143,11 @@
     }];
     [self initView];
 }
-
+*/
 
 #pragma mark * UITableView methods
 
-
+/*
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -160,7 +167,10 @@
                               withRowAnimation:UITableViewRowAnimationTop];
     }];
 }
+*/
 
+
+/*
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Find the item that is about to be edited
@@ -230,7 +240,7 @@
     [textField resignFirstResponder];
     return YES;
 }
-
+*/
 
 #pragma mark * UI Actions
 
@@ -241,7 +251,7 @@
         return;
     }
     NSDictionary *item = NULL;
-    UITableView *view = self.tableView;
+    //UITableView *view = self.tableView;
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     for (int i = 0;i < MAX_DRINKS_TYPE;i++)
     {
@@ -251,9 +261,13 @@
             item = @{ @"userID" :appDelegate.secureUDID, @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"time" : [NSDate date], @"type" : [NSString stringWithFormat:@"%d",i], @"count" : [NSString stringWithFormat:@"%d",value], @"complete" : @YES };
             [self.todoService addItem:item completion:^(NSUInteger index)
              {
-                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+                 /*NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
                  [view insertRowsAtIndexPaths:@[ indexPath ]
                          withRowAnimation:UITableViewRowAnimationTop];
+             */
+                 NSLog(@"Item sent!");
+                [[Datastore datastore] saveItem:item];
+                 
              }];
         }
         appDelegate.sessionDrinks = appDelegate.sessionDrinks + value;
@@ -274,6 +288,7 @@
 
 #pragma mark * iOS Specific Code
 
+/*
 // This method will add the UIRefreshControl to the table view if
 // it is available, ie, we are running on iOS 6+
 
@@ -295,7 +310,7 @@
 {
     [self refresh];
 }
-
+*/
 - (IBAction)valueStepperChanged:(UIStepper*) sender
 {
     drinksValue[sender.tag] = [sender value];

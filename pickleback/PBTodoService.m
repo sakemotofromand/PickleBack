@@ -15,6 +15,7 @@
 //
 
 #import "PBTodoService.h"
+#import "PBAppDelegate.h"
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 
@@ -67,11 +68,12 @@
         
         self.items = [[NSMutableArray alloc] init];
         self.busyCount = 0;
+        NSLog(@"I have %d items",[items count]);
     }
-    
     return self;
 }
 
+/*
 - (void)refreshDataOnSuccess:(QSCompletionBlock)completion
 {
     // Create a predicate that finds items where complete is false
@@ -89,6 +91,67 @@
     }];
     
 }
+*/
+
+
+ - (void)getUserData:(QSCompletionBlock)completion
+ {
+     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
+     
+     // Create a predicate that finds items where userID is secureUDID
+     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"userID == %@",appDelegate.secureUDID];
+ 
+     // Retrieve the MSTable's MSQuery instance with the predicate you just created.
+     MSQuery * query = [self.table queryWithPredicate:predicate];
+     
+     
+     query.includeTotalCount = YES; // Request the total item count
+     
+     
+     // Start with the first item, and retrieve 100 items
+     query.fetchOffset = 0;
+     query.fetchLimit = 50;
+     
+     
+     // Invoke the MSQuery instance directly, rather than using the MSTable helper methods.
+     [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
+         
+         
+         [self logErrorIfNotNil:error];
+         if (!error)
+         {
+             // Log total count.
+             NSLog(@"Total item count: %@",[NSString stringWithFormat:@"%zd", (ssize_t) totalCount]);
+         }
+         
+         
+         items = [results mutableCopy];
+         
+         NSLog(@"I have %d items",[items count]);
+         
+         // Let the caller know that we finished
+         completion();
+         
+         
+     }];
+     
+     
+     
+     
+     
+     /*
+ // Query the TodoItem table and update the items property with the results from the service
+ [self.table readWithPredicate:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
+ {
+ [self logErrorIfNotNil:error];
+ 
+ items = [results mutableCopy];
+     NSLog(@"I have %d items",[items count]);
+   completion();
+
+ }];
+ */
+ }
 
 -(void)addItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
 {
@@ -104,7 +167,7 @@
         completion(index);
     }];
 }
-
+/*
 -(void)completeItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
 {
     // Cast the public items property to the mutable type (it was created as mutable)
@@ -133,7 +196,7 @@
         completion(index);
     }];
 }
-
+*/
 - (void)busy:(BOOL)busy
 {
     // assumes always executes on UI thread
