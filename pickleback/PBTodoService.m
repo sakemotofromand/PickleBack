@@ -16,6 +16,7 @@
 
 #import "PBTodoService.h"
 #import "PBAppDelegate.h"
+#import "Datastore.h"
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
 
@@ -104,41 +105,29 @@
      // Retrieve the MSTable's MSQuery instance with the predicate you just created.
      MSQuery * query = [self.table queryWithPredicate:predicate];
      
-     
      query.includeTotalCount = YES; // Request the total item count
      
-     
-     // Start with the first item, and retrieve 100 items
-     query.fetchOffset = 0;
-     query.fetchLimit = 50;
-     
+     // Retrieve 1000 items
+     query.fetchOffset = [[Datastore datastore] countItems];
+     query.fetchLimit = 1000;
      
      // Invoke the MSQuery instance directly, rather than using the MSTable helper methods.
      [query readWithCompletion:^(NSArray *results, NSInteger totalCount, NSError *error) {
-         
-         
          [self logErrorIfNotNil:error];
          if (!error)
          {
              // Log total count.
              NSLog(@"Total item count: %@",[NSString stringWithFormat:@"%zd", (ssize_t) totalCount]);
          }
-         
-         
          items = [results mutableCopy];
-         
          NSLog(@"I have %d items",[items count]);
-         
+         for (int i = 0; i < [items count]; i++)
+         {
+             [[Datastore datastore] saveItem:[items objectAtIndex:i]];
+         }
          // Let the caller know that we finished
          completion();
-         
-         
      }];
-     
-     
-     
-     
-     
      /*
  // Query the TodoItem table and update the items property with the results from the service
  [self.table readWithPredicate:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)

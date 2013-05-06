@@ -17,8 +17,12 @@
 
 @property (nonatomic, retain) FMDatabase *db;
 
--(void)saveItem:(NSDictionary *)item;
+
+- (int)countItems;
+- (void)saveItem:(NSDictionary *)item;
+- (NSMutableArray *)getSavedItems;
 + (Datastore*)datastore;
+
 
 
 @end

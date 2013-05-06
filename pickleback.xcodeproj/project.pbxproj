@@ -32,7 +32,7 @@
 		75B168831731CF35004710A8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B1687E1731CF35004710A8 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75B168841731CF35004710A8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168801731CF35004710A8 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75B168851731CF35004710A8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168821731CF35004710A8 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		75B168881731CF59004710A8 /* Datastore.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168871731CF59004710A8 /* Datastore.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		75B168881731CF59004710A8 /* Datastore.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168871731CF59004710A8 /* Datastore.m */; };
 		75B1688A1731CF7A004710A8 /* pickleback.db in Resources */ = {isa = PBXBuildFile; fileRef = 75B168891731CF7A004710A8 /* pickleback.db */; };
 		75B1688D1731CFEB004710A8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B1688B1731CFEB004710A8 /* libsqlite3.0.dylib */; };
 		75B1688E1731CFEB004710A8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B1688C1731CFEB004710A8 /* libsqlite3.dylib */; };

@@ -114,17 +114,19 @@
     //Init all counters for drink types
     for (int i=0; i < MAX_DRINKS_TYPE; i++) drinksValue[i] = 0;
     [self initView];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self initView];
+    
+    //We load all data
     [self.todoService getUserData:^
      {
          NSLog(@"Done!");
          //[self.tableView reloadData];
      }];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self initView];
+
 }
 
 /*
@@ -267,7 +269,6 @@
              */
                  NSLog(@"Item sent!");
                 [[Datastore datastore] saveItem:item];
-                 
              }];
         }
         appDelegate.sessionDrinks = appDelegate.sessionDrinks + value;

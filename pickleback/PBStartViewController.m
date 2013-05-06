@@ -8,6 +8,7 @@
 
 #import "PBStartViewController.h"
 #import "PBAppDelegate.h"
+#import "Datastore.h"
 #import <UIKit/UIKit.h>
 #import <stdlib.h>
 
@@ -59,6 +60,34 @@
         int seconds = (-1) * (secondsElapsed % 3600) % 60;
         sessionStatsLabel.text = [NSString stringWithFormat:@"You´ve had %d drinks in %02d:%02d:%02d", appDelegate.sessionDrinks, hours, minutes, seconds];
     }
+    //Let's count drinks
+    int countSession = 0;
+    int count1h = 0;
+    int count1d = 0;
+    int count1w = 0;
+    int count1m = 0;
+    NSMutableArray *items = [[Datastore datastore] getSavedItems];
+    for (NSDictionary *i in items) {
+        //In this session
+        if (appDelegate.sessionId == [[i objectForKey:@"sessionID"] intValue]) countSession = countSession + [[i objectForKey:@"count"] intValue];
+        //In last 4 hours
+        int secondsElapsed = [[i objectForKey:@"time"] timeIntervalSinceNow];
+        Crec que time no va... aquí hi ha algo raro amb els counts....
+        if (secondsElapsed < 60*60) count1h = count1h + [[i objectForKey:@"count"] intValue];
+        //In last 24h
+        if (secondsElapsed < 24*60*60) count1d = count1d + [[i objectForKey:@"count"] intValue];
+        //In last week
+        if (secondsElapsed < 7*24*60*60) count1w = count1w + [[i objectForKey:@"count"] intValue];
+        //In last month
+        if (secondsElapsed < 30*24*60*60) count1m = count1m + [[i objectForKey:@"count"] intValue];
+        
+    }
+    NSLog(@"You've had %d in this session",countSession);
+    NSLog(@"You've had %d in the last hour",count1h);
+    NSLog(@"You've had %d in the last day",count1d);
+    NSLog(@"You've had %d in the last week",count1w);
+    NSLog(@"You've had %d in the last month",count1m);
+    
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component
@@ -195,7 +224,6 @@
     appDelegate.tabBar.selectedIndex = 2;
     //[timer release];
 }
-
 
 
 

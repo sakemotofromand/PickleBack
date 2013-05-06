@@ -98,6 +98,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Counter" id="RJ0-VX-qGh"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="oKL-Dt-wFv" id="F0w-HY-jFI"/>
                         <outlet property="beers" destination="TBA-Gw-LIV" id="OsZ-f3-uQh"/>
@@ -156,6 +157,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" id="Ppe-nR-3Zp"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lbg-s8-aDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -221,6 +223,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="oa6-UU-JlK"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="pickerView" destination="lei-dk-fXe" id="kvF-LP-8qy"/>
                         <outlet property="sessionStatsLabel" destination="q5H-fr-eez" id="I6H-0R-KXB"/>
@@ -238,6 +241,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" id="XtG-l4-CNX" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="b7n-0v-5cn">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

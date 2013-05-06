@@ -20,7 +20,7 @@ static Datastore* instance;
 #pragma mark Setup
 
 
-+(void) initialize
++ (void)initialize
 {
 	//First test for existence
 	BOOL success;
@@ -53,7 +53,8 @@ static Datastore* instance;
     return instance;
 }
 
--(id)init {
+- (id)init
+{
 	//NSLog(@"Datastore init:");
 	if (self = [super init])
         {
@@ -67,11 +68,12 @@ static Datastore* instance;
 }
 
 
-- (void) dealloc {
+- (void)dealloc
+{
 	//NSLog(@"Datastore dealloc:");
 	[db close];
-	[db release];
-	[super dealloc];
+	//[db release];
+	//[super dealloc];
 }
 
 - (int)countItems
@@ -89,91 +91,48 @@ static Datastore* instance;
 
 - (void)saveItem:(NSDictionary *)item
 {
+    //Count items to see where we are. Get rid of this soon.
     [self countItems];
-  /*  NSDictionary *item = NULL;
-  
-            item = @{ @"userID" :appDelegate.secureUDID, @"sessionID" : [NSString stringWithFormat:@"%d",appDelegate.sessionId], @"time" : [NSDate date], @"type" : [NSString stringWithFormat:@"%d",i], @"count" : [NSString stringWithFormat:@"%d",value], @"complete" : @YES };
-    */
     
     @synchronized(db) {        
 		NSNumber *type= [NSNumber numberWithInt: [[item objectForKey:@"type"] intValue]];
-        NSLog(@"HELLO!! %d", [type intValue]);
-        NSLog(@"HELLO!! %@", [item objectForKey:@"time"]);
+        //NSLog(@"HELLO!! %d", [type intValue]);
+        //NSLog(@"HELLO!! %@", [item objectForKey:@"time"]);
         
 		NSNumber *count= [NSNumber numberWithInt: [[item objectForKey:@"count"] intValue]];
         NSNumber *sessionID= [NSNumber numberWithInt: [[item objectForKey:@"sessionID"] intValue]];
         
 	   [db executeUpdate: @"insert into item (time,type,count,sessionID,userID) values(?,?,?,?,?)",[item objectForKey:@"time"],type,count,sessionID,[item objectForKey:@"userID"],nil];
         
-        FMResultSet *rs = [db executeQuery:@"SELECT * FROM item", nil];
+        /*FMResultSet *rs = [db executeQuery:@"SELECT * FROM item", nil];
         while ([rs next])
         {
             int type= [rs intForColumn:@"type"];
             int count= [rs intForColumn:@"count"];
             int sessionID= [rs intForColumn:@"sessionID"];
-            NSString *time = [rs stringForColumn:@"time"];
-            //problemes amb data...
-            NSLog(@"Time: %@ and type:%d and count:%d and sessionID:%d",time,type,count,sessionID);
+            NSDate *time = [rs dateForColumn:@"time"];
+            //NSLog(@"Time: %@ and type:%d and count:%d and sessionID:%d",time,type,count,sessionID);
         }
         [rs close];
-	}
+	*/
+    }
 }
 
-/*
--(NSMutableArray *)courseStatesAndCountries {
-	NSLog(@"Datastore courseStatesAndCountries:");
-	NSMutableArray *countries =[NSMutableArray array];
-	
+
+-(NSMutableArray *)getSavedItems
+{
+	NSMutableArray *items =[NSMutableArray array];
 	@synchronized(db){
-		FMResultSet *rs = [db executeQuery:@"SELECT * FROM country ORDER BY description DESC", nil];
-		while ([rs next]) {
-			
-			NSString *countryName = [rs stringForColumn:@"description"];
-			NSLog(@"COUnTRY NAME: %@",countryName);
-			
-			NSMutableDictionary *countryDictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:countryName, @"CountryName", [NSMutableArray array], @"StateIDs", nil];
-			[countries addObject:countryDictionary];
-			[countryDictionary release];
+		FMResultSet *rs = [db executeQuery:@"SELECT * FROM item", nil];
+		while ([rs next]) {        
+            NSDictionary *item = @{ @"sessionID" : [NSNumber numberWithInt:[rs intForColumn:@"sessionID"]], @"time" : [rs dateForColumn:@"time"],@"count" : [NSNumber numberWithInt:[rs intForColumn:@"count"]] };
+			[items addObject:item];
+			//[item release];
 		}
 		
 		[rs close]; 
-		
-		// Hard code the states that have coordinated courses until we figure out a better way of doing this
-		//rs = [db executeQuery:@"SELECT * FROM state WHERE abbreviation IN ('FL', 'MN', 'NY') ORDER BY name", nil];
-		rs = [db executeQuery:@"SELECT * FROM state ORDER BY name", nil];
-		while ([rs next]) {
-			NSString *stateName = [rs stringForColumn:@"name"];
-			NSString *country = [rs stringForColumn:@"country"];
-			NSString *abbreviation = [rs stringForColumn:@"abbreviation"];
-			
-			NSMutableDictionary *countryDictionary = countryDictionaryWithNameInArray (country, countries);
-			NSMutableArray *states = [countryDictionary objectForKey:@"StateIDs"];
-			
-			NSMutableDictionary *stateDictionary = [[NSMutableDictionary alloc] initWithObjectsAndKeys:stateName, @"StateName", abbreviation, @"Abbreviation", nil];
-			[states addObject:stateDictionary];
-			[stateDictionary release];
-		}
-		[rs close];  
 	}
-	return countries;
+	return items;
 }
 
--(NSMutableArray *)countries {
-	NSMutableArray *countries =[NSMutableArray array];
-	@synchronized(db){
-		FMResultSet *rs = [db executeQuery:@"SELECT * FROM country", nil];
-		while ([rs next]) {
-			//NSLog(@"Got a country");
-			Country *country = [[Country alloc] init]; 
-			country.primaryKey = [rs intForColumn:@"pk"];
-			country.description = [rs stringForColumn:@"description"];
-			country.countryCode = [rs intForColumn:@"countrycode"];
-			country.lastDownload = [NSDate dateWithTimeIntervalSince1970: [rs doubleForColumn:@"lastdownload"]]; 
-			[countries addObject:country];
-			[country release];
-		}
-	}
-	return countries;
-}
- */
 @end

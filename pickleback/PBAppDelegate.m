@@ -44,7 +44,8 @@
     sessionDrinks = 0;
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotif) {
+    if (localNotif)
+    {
         NSLog(@"Recieved Notification %@",localNotif);
     }
     /* Use following code to create open ID
@@ -61,7 +62,7 @@
     //Now we load data from file
         NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Data"];
 
- NSArray *contentArray = [[NSArray alloc] initWithContentsOfFile:path];
+    NSArray *contentArray = [[NSArray alloc] initWithContentsOfFile:path];
     NSLog(@"I load %d",[contentArray count]);
     return YES;
 
