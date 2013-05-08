@@ -39,7 +39,7 @@
     //Handle launching from a notification
     if (timer != nil) [timer invalidate];
     timerSecondsLeft = 5; //first position of the array, otherwise it doesn't work if user doesnt touch the picker view
-    timerInitialSecondsLeft = 5;
+    timerInitialSecondsLeft = 0;
     sessionId = 0;
     sessionDrinks = 0;
     UILocalNotification *localNotif =

@@ -28,8 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    timerLabels = [[NSArray alloc] initWithObjects:@"5'' reminders",@"1' reminders",@"15' reminders",@"30' reminders",@"1h reminders", nil];
-    timerValues = [[NSArray alloc] initWithObjects:@"5",@"60",@"900",@"1800",@"3600", nil];
+    hourLabels = [[NSArray alloc] initWithObjects:@"0 hours",@"1 hour",@"2 hours",@"3 hours", nil];
+    hourValues = [[NSArray alloc] initWithObjects:@"0",@"3600",@"7200",@"10800", nil];
+    minuteLabels = [[NSArray alloc] initWithObjects:@"0 minutes",@"15 minutes",@"30 minutes",@"45 minutes", nil];
+    minuteValues = [[NSArray alloc] initWithObjects:@"0",@"900",@"1800",@"2700", nil];
     pickerView.delegate = self;
     pickerView.showsSelectionIndicator = YES;
     [self.view addSubview:pickerView];
@@ -60,48 +62,22 @@
         int seconds = (-1) * (secondsElapsed % 3600) % 60;
         sessionStatsLabel.text = [NSString stringWithFormat:@"You´ve had %d drinks in %02d:%02d:%02d", appDelegate.sessionDrinks, hours, minutes, seconds];
     }
-    //Let's count drinks
-    int countSession = 0;
-    int count1h = 0;
-    int count1d = 0;
-    int count1w = 0;
-    int count1m = 0;
-    NSMutableArray *items = [[Datastore datastore] getSavedItems];
-    for (NSDictionary *i in items) {
-        //In this session
-        if (appDelegate.sessionId == [[i objectForKey:@"sessionID"] intValue]) countSession = countSession + [[i objectForKey:@"count"] intValue];
-        //In last 4 hours
-        int secondsElapsed = [[i objectForKey:@"time"] timeIntervalSinceNow];
-        Crec que time no va... aquí hi ha algo raro amb els counts....
-        if (secondsElapsed < 60*60) count1h = count1h + [[i objectForKey:@"count"] intValue];
-        //In last 24h
-        if (secondsElapsed < 24*60*60) count1d = count1d + [[i objectForKey:@"count"] intValue];
-        //In last week
-        if (secondsElapsed < 7*24*60*60) count1w = count1w + [[i objectForKey:@"count"] intValue];
-        //In last month
-        if (secondsElapsed < 30*24*60*60) count1m = count1m + [[i objectForKey:@"count"] intValue];
-        
-    }
-    NSLog(@"You've had %d in this session",countSession);
-    NSLog(@"You've had %d in the last hour",count1h);
-    NSLog(@"You've had %d in the last day",count1d);
-    NSLog(@"You've had %d in the last week",count1w);
-    NSLog(@"You've had %d in the last month",count1m);
-    
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component
 {
-    PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate.timerInitialSecondsLeft = [[timerValues objectAtIndex:row] intValue];
-    appDelegate.timerSecondsLeft =  appDelegate.timerInitialSecondsLeft;
-    NSLog(@"Seconds according to pickerView selection: %d", appDelegate.timerInitialSecondsLeft);
+        NSInteger firstComponentRow = [self.pickerView selectedRowInComponent:0];
+        NSInteger secondComponentRow = [self.pickerView selectedRowInComponent:1];
+        PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
+        appDelegate.timerInitialSecondsLeft = [[hourValues objectAtIndex:firstComponentRow] intValue] + [[minuteValues objectAtIndex:secondComponentRow] intValue];
+        appDelegate.timerSecondsLeft =  appDelegate.timerInitialSecondsLeft;
+        NSLog(@"Seconds according to pickerView selection: %d", appDelegate.timerInitialSecondsLeft);
 }
 
 // tell the picker how many rows are available for a given component
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    NSUInteger numRows = 5;
+    NSUInteger numRows = 4;
     
     return numRows;
 }
@@ -109,7 +85,7 @@
 // tell the picker how many components it will have
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+    return 2;
 }
 
 // tell the picker the title for a given component
@@ -118,14 +94,17 @@
     NSString *title;
     if (component == 0)
     {
-        title = [@"" stringByAppendingFormat:@"%@",[timerLabels objectAtIndex:row]];
+        title = [@"" stringByAppendingFormat:@"%@",[hourLabels objectAtIndex:row]];
+    } else
+    {
+        title = [@"" stringByAppendingFormat:@"%@",[minuteLabels objectAtIndex:row]];
     }
     return title;
 }
 
 // tell the picker the width of each row for a given component
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
-    int sectionWidth = 300;
+    int sectionWidth = 150;
     
     return sectionWidth;
 }
@@ -199,6 +178,7 @@
 - (IBAction)startSession
 {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.timerInitialSecondsLeft == 0) return;
     startButton.hidden = TRUE;
     stopButton.hidden = FALSE;
     pickerView.hidden = TRUE;

@@ -29,6 +29,7 @@
 		7582B15E172B27350046DE2F /* pickleback72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7582B15A172B27350046DE2F /* pickleback72.png */; };
 		7582B15F172B27350046DE2F /* pickleback114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7582B15B172B27350046DE2F /* pickleback114.png */; };
 		7582B160172B27350046DE2F /* pickleback144.png in Resources */ = {isa = PBXBuildFile; fileRef = 7582B15C172B27350046DE2F /* pickleback144.png */; };
+		7585C6501738A5CA0007173C /* PBMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7585C64F1738A5C90007173C /* PBMeViewController.m */; };
 		75B168831731CF35004710A8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B1687E1731CF35004710A8 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75B168841731CF35004710A8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168801731CF35004710A8 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		75B168851731CF35004710A8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B168821731CF35004710A8 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -71,6 +72,8 @@
 		7582B15A172B27350046DE2F /* pickleback72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickleback72.png; sourceTree = "<group>"; };
 		7582B15B172B27350046DE2F /* pickleback114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickleback114.png; sourceTree = "<group>"; };
 		7582B15C172B27350046DE2F /* pickleback144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pickleback144.png; sourceTree = "<group>"; };
+		7585C64E1738A5C50007173C /* PBMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBMeViewController.h; sourceTree = "<group>"; };
+		7585C64F1738A5C90007173C /* PBMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBMeViewController.m; sourceTree = "<group>"; };
 		75B1687D1731CF35004710A8 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		75B1687E1731CF35004710A8 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		75B1687F1731CF35004710A8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				03D1004916EC58490005A1A9 /* PBTodoService.m */,
 				03D1004516EC58300005A1A9 /* PBTodoListViewController.h */,
 				03D1004616EC58300005A1A9 /* PBTodoListViewController.m */,
+				7585C64E1738A5C50007173C /* PBMeViewController.h */,
+				7585C64F1738A5C90007173C /* PBMeViewController.m */,
 				03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */,
 				03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */,
 				03D1002C16EC579A0005A1A9 /* PBAppDelegate.h */,
@@ -283,6 +288,7 @@
 				75B168841731CF35004710A8 /* FMDatabaseAdditions.m in Sources */,
 				75B168851731CF35004710A8 /* FMResultSet.m in Sources */,
 				75B168881731CF59004710A8 /* Datastore.m in Sources */,
+				7585C6501738A5CA0007173C /* PBMeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

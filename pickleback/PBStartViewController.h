@@ -15,8 +15,10 @@
     IBOutlet UILabel *sessionStatsLabel;
     IBOutlet UIButton *startButton;
     IBOutlet UIButton *stopButton;
-    NSArray *timerLabels;
-    NSArray *timerValues;
+    NSArray *hourLabels;
+    NSArray *hourValues;
+    NSArray *minuteLabels;
+    NSArray *minuteValues;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *timerCountLabel;
