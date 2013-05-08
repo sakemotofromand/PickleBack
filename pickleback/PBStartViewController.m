@@ -30,7 +30,7 @@
     [super viewDidLoad];
     hourLabels = [[NSArray alloc] initWithObjects:@"0 hours",@"1 hour",@"2 hours",@"3 hours", nil];
     hourValues = [[NSArray alloc] initWithObjects:@"0",@"3600",@"7200",@"10800", nil];
-    minuteLabels = [[NSArray alloc] initWithObjects:@"0 minutes",@"15 minutes",@"30 minutes",@"45 minutes", nil];
+    minuteLabels = [[NSArray alloc] initWithObjects:@"0 mins",@"15 mins",@"30 mins",@"45 mins", nil];
     minuteValues = [[NSArray alloc] initWithObjects:@"0",@"900",@"1800",@"2700", nil];
     pickerView.delegate = self;
     pickerView.showsSelectionIndicator = YES;
@@ -119,7 +119,7 @@
         int hours = appDelegate.timerSecondsLeft / 3600;
         int minutes = (appDelegate.timerSecondsLeft % 3600) / 60;
         int seconds = (appDelegate.timerSecondsLeft %3600) % 60;
-        timerCountLabel.text = [NSString stringWithFormat:@"Next check-in in %02d:%02d:%02d", hours, minutes, seconds];
+        timerCountLabel.text = [NSString stringWithFormat:@"Your next check in is in %02d:%02d:%02d", hours, minutes, seconds];
     } else
     {
         [self resetTimer];
@@ -134,7 +134,7 @@
     int hours = timerSecondsLeft / 3600;
     int minutes = (timerSecondsLeft % 3600) / 60;
     int seconds = (timerSecondsLeft % 3600) % 60;
-    timerCountLabel.text = [NSString stringWithFormat:@"Next check-in in %02d:%02d:%02d", hours, minutes, seconds];
+    timerCountLabel.text = [NSString stringWithFormat:@"Your next check in is in %02d:%02d:%02d", hours, minutes, seconds];
     timerCountLabel.numberOfLines = 2;
     appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decreaseTimerCount) userInfo:nil repeats:YES];
     NSDate *now = [NSDate date];
@@ -195,7 +195,7 @@
     [appDelegate.timer invalidate];
     appDelegate.sessionId = 0;
     appDelegate.sessionDrinks = 0;
-    timerCountLabel.text = @"Start a new session now!";
+    timerCountLabel.text = @"Check in with me every:";
     sessionStatsLabel.text = @"";
     startButton.hidden = FALSE;
     stopButton.hidden = TRUE;
