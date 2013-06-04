@@ -52,15 +52,17 @@
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.sessionId == 0)
     {
-        sessionStatsLabel.text = @"";
+        timerCountLabel.text = @"How often would you like to tally your drinks?";
     } else
     {
-        int secondsElapsed = [appDelegate.sessionStart timeIntervalSinceNow];
+        timerCountLabel.text = @"Your next tally in:";
+        /*int secondsElapsed = [appDelegate.sessionStart timeIntervalSinceNow];
         NSLog(@"Seconds elapsed: %d", secondsElapsed);
         int hours = (-1) * secondsElapsed / 3600;
         int minutes = (-1) * (secondsElapsed % 3600) / 60;
         int seconds = (-1) * (secondsElapsed % 3600) % 60;
         sessionStatsLabel.text = [NSString stringWithFormat:@"You´ve had %d drinks in %02d:%02d:%02d", appDelegate.sessionDrinks, hours, minutes, seconds];
+    */
     }
 }
 
@@ -119,7 +121,7 @@
         int hours = appDelegate.timerSecondsLeft / 3600;
         int minutes = (appDelegate.timerSecondsLeft % 3600) / 60;
         int seconds = (appDelegate.timerSecondsLeft %3600) % 60;
-        timerCountLabel.text = [NSString stringWithFormat:@"Your next check in is in %02d:%02d:%02d", hours, minutes, seconds];
+        sessionStatsLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
     } else
     {
         [self resetTimer];
@@ -134,7 +136,8 @@
     int hours = timerSecondsLeft / 3600;
     int minutes = (timerSecondsLeft % 3600) / 60;
     int seconds = (timerSecondsLeft % 3600) % 60;
-    timerCountLabel.text = [NSString stringWithFormat:@"Your next check in is in %02d:%02d:%02d", hours, minutes, seconds];
+    timerCountLabel.text = @"Your next tally in:";
+    sessionStatsLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
     timerCountLabel.numberOfLines = 2;
     appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decreaseTimerCount) userInfo:nil repeats:YES];
     NSDate *now = [NSDate date];
@@ -153,7 +156,7 @@
     localNotif.fireDate = scheduled;
     localNotif.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EDT"];
     
-    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"How many drinks have you had?", nil),
+    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Enter drinks", nil),
                             timerSecondsLeft*60];
     localNotif.alertAction = NSLocalizedString(@"View Details", nil);
     
@@ -193,9 +196,9 @@
 {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.timer invalidate];
-    appDelegate.sessionId = 0;
+    //appDelegate.sessionId = 0;
     appDelegate.sessionDrinks = 0;
-    timerCountLabel.text = @"Check in with me every:";
+    timerCountLabel.text = @"How often would you like to tally your drinks?";
     sessionStatsLabel.text = @"";
     startButton.hidden = FALSE;
     stopButton.hidden = TRUE;

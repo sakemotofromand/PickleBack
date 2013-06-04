@@ -25,19 +25,20 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *itemText;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, strong) IBOutlet UIStepper *beers;
-@property (nonatomic, strong) IBOutlet UIStepper *wines;
-@property (nonatomic, strong) IBOutlet UIStepper *mixed;
-@property (nonatomic, strong) IBOutlet UIStepper *shots;
+@property (nonatomic, strong) IBOutlet UIButton *beersButton;
+@property (nonatomic, strong) IBOutlet UIButton *winesButton;
+@property (nonatomic, strong) IBOutlet UIButton *mixedButton;
+@property (nonatomic, strong) IBOutlet UIButton *shotsButton;
 @property (nonatomic, strong) IBOutlet UILabel *beersLabel;
 @property (nonatomic, strong) IBOutlet UILabel *winesLabel;
 @property (nonatomic, strong) IBOutlet UILabel *mixedLabel;
 @property (nonatomic, strong) IBOutlet UILabel *shotsLabel;
 @property (nonatomic, strong) IBOutlet UIButton *confirmButton;
 @property (nonatomic, strong) IBOutlet UILabel *headerInfo;
+@property (nonatomic, strong) IBOutlet UIButton *clearButton;
 
 - (IBAction)onAdd:(id)sender;
-- (IBAction)valueStepperChanged:(UIStepper*) sender;
-
+- (IBAction)addDrink:(UIButton*) sender;
+- (IBAction)clearValues:(UIButton*) sender;
 
 @end

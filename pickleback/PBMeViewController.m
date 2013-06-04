@@ -61,7 +61,7 @@
         if (secondsElapsed < 30*24*60*60) count1m = count1m + [[i objectForKey:@"count"] intValue];
         
     }
-    countThisSession.text = [NSString stringWithFormat:@"%d in the last session",countSession];
+    countThisSession.text = [NSString stringWithFormat:@"%d in this session",countSession];
     countLastHour.text = [NSString stringWithFormat:@"%d in the last hour",count1h];
     countLastDay.text = [NSString stringWithFormat:@"%d in the last day",count1d];
     countLastWeek.text = [NSString stringWithFormat:@"%d in the last week",count1w];

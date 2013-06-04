@@ -41,8 +41,8 @@
 @synthesize todoService;
 @synthesize itemText;
 @synthesize activityIndicator;
-@synthesize beers, wines, mixed, shots;
 @synthesize beersLabel, winesLabel, mixedLabel, shotsLabel, confirmButton, headerInfo;
+@synthesize beersButton, winesButton, mixedButton, shotsButton, clearButton;
 
 
 #pragma mark * UIView methods
@@ -61,26 +61,28 @@
         winesLabel.hidden = TRUE;
         mixedLabel.hidden = TRUE;
         shotsLabel.hidden = TRUE;
-        beers.hidden = TRUE;
-        wines.hidden = TRUE;
-        mixed.hidden = TRUE;
-        shots.hidden = TRUE;
+        beersButton.hidden = TRUE;
+        winesButton.hidden = TRUE;
+        mixedButton.hidden = TRUE;
+        shotsButton.hidden = TRUE;
         confirmButton.hidden = TRUE;
         itemText.hidden = TRUE;
-        headerInfo.text = @"Go Home to start new session.";
+        clearButton.hidden = TRUE;
+        headerInfo.text = @"Go Home to start new session";
     } else
     {
         beersLabel.hidden = FALSE;
         winesLabel.hidden = FALSE;
         mixedLabel.hidden = FALSE;
         shotsLabel.hidden = FALSE;
-        beers.hidden = FALSE;
-        wines.hidden = FALSE;
-        mixed.hidden = FALSE;
-        shots.hidden = FALSE;
+        beersButton.hidden = FALSE;
+        winesButton.hidden = FALSE;
+        mixedButton.hidden = FALSE;
+        shotsButton.hidden = FALSE;
         confirmButton.hidden = FALSE;
+        clearButton.hidden = FALSE;
         itemText.hidden = TRUE;
-        headerInfo.text = @"How many drinks have you had since your last check in?";
+        headerInfo.text = @"Enter drinks";
     }
 }
 
@@ -275,14 +277,10 @@
         drinksValue[i] = 0;
     }
     itemText.text = @"";
-    beersLabel.text = @"0 beers";
-    winesLabel.text = @"0 wines";
-    mixedLabel.text = @"0 mixed";
-    shotsLabel.text = @"0 shots";
-    beers.value = 0;
-    wines.value = 0;
-    mixed.value = 0;
-    shots.value = 0;
+    beersLabel.text = @"0";
+    winesLabel.text = @"0";
+    mixedLabel.text = @"0";
+    shotsLabel.text = @"0";
     appDelegate.tabBar.selectedIndex = 0;
 }
 
@@ -312,24 +310,41 @@
     [self refresh];
 }
 */
-- (IBAction)valueStepperChanged:(UIStepper*) sender
+
+- (IBAction)clearValues:(UIButton*) sender
 {
-    drinksValue[sender.tag] = [sender value];
-    switch (sender.tag) {
+    drinksValue[0] = 0;
+    drinksValue[1] = 0;
+    drinksValue[2] = 0;
+    drinksValue[3] = 0;
+    beersLabel.text = @"0";
+    winesLabel.text = @"0";
+    mixedLabel.text = @"0";
+    shotsLabel.text = @"0";
+    
+}
+
+- (IBAction)addDrink:(UIButton*) sender
+{
+    drinksValue[sender.tag] = drinksValue[sender.tag] + 1;
+    switch (sender.tag)
+    {
         case 0:
-            [beersLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d beer":@"%d beers",drinksValue[sender.tag]]];
+            [beersLabel setText:[NSString stringWithFormat:@"%d",drinksValue[sender.tag]]];
             break;
         case 1:
-            [winesLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d beer":@"%d wines",drinksValue[sender.tag]]];
+            [winesLabel setText:[NSString stringWithFormat:@"%d",drinksValue[sender.tag]]];
             break;
         case 2:
-            [mixedLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d mixed":@"%d mixeds",drinksValue[sender.tag]]];
+            [mixedLabel setText:[NSString stringWithFormat:@"%d",drinksValue[sender.tag]]];
             break;
         case 3:
-            [shotsLabel setText:[NSString stringWithFormat:(drinksValue[sender.tag]==1)?@"%d shot":@"%d shots",drinksValue[sender.tag]]];
+            [shotsLabel setText:[NSString stringWithFormat:@"%d",drinksValue[sender.tag]]];
             break;
-        }
+    }
 }
+
+
 
 
 @end
