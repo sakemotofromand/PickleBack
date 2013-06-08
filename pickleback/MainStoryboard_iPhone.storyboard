@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="XtG-l4-CNX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="XtG-l4-CNX">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -224,7 +224,7 @@
             </objects>
             <point key="canvasLocation" x="-274" y="100"/>
         </scene>
-        <!--Start View Controller - Home-->
+        <!--Start View Controller - Timer-->
         <scene sceneID="7GG-8k-cRR">
             <objects>
                 <viewController id="MKa-1S-2WM" customClass="PBStartViewController" sceneMemberID="viewController">
@@ -279,17 +279,25 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="80w-zI-cjj">
+                                <rect key="frame" x="27" y="301" width="266" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="StopWatchIcon.png" id="oa6-UU-JlK"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="StopWatchIcon.png" id="oa6-UU-JlK"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="countDownLabel" destination="q5H-fr-eez" id="6t7-sL-5UW"/>
+                        <outlet property="headerLabel" destination="JEQ-1B-1or" id="iKy-Ll-V4J"/>
                         <outlet property="pickerView" destination="lei-dk-fXe" id="kvF-LP-8qy"/>
-                        <outlet property="sessionStatsLabel" destination="q5H-fr-eez" id="I6H-0R-KXB"/>
+                        <outlet property="sessionStatsLabel" destination="80w-zI-cjj" id="A43-2q-qZ4"/>
                         <outlet property="startButton" destination="rYg-mV-kZb" id="Huc-BN-g3n"/>
                         <outlet property="stopButton" destination="Lxv-th-m9P" id="mzp-qe-8V5"/>
-                        <outlet property="timerCountLabel" destination="JEQ-1B-1or" id="Kwg-KX-cY3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWR-Ce-Z27" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,11 +354,12 @@
             <relationships>
                 <relationship kind="action" name="startSession"/>
                 <relationship kind="action" name="stopSession"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="sessionStatsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timerCountLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="PBTodoListViewController" superclassName="UIViewController">

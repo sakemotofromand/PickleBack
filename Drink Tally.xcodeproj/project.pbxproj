@@ -54,14 +54,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03D1001A16EC579A0005A1A9 /* pickleback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pickleback.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03D1001A16EC579A0005A1A9 /* Drink Tally.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drink Tally.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D1001D16EC579A0005A1A9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		03D1001F16EC579A0005A1A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03D1002116EC579A0005A1A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		03D1002516EC579A0005A1A9 /* pickleback-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pickleback-Info.plist"; sourceTree = "<group>"; };
+		03D1002516EC579A0005A1A9 /* Drink Tally-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Drink Tally-Info.plist"; sourceTree = "<group>"; };
 		03D1002716EC579A0005A1A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03D1002916EC579A0005A1A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		03D1002B16EC579A0005A1A9 /* pickleback-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pickleback-Prefix.pch"; sourceTree = "<group>"; };
+		03D1002B16EC579A0005A1A9 /* Drink Tally-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drink Tally-Prefix.pch"; sourceTree = "<group>"; };
 		03D1002C16EC579A0005A1A9 /* PBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PBAppDelegate.h; sourceTree = "<group>"; };
 		03D1002D16EC579A0005A1A9 /* PBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PBAppDelegate.m; sourceTree = "<group>"; };
 		03D1002F16EC579A0005A1A9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		03D1001B16EC579A0005A1A9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03D1001A16EC579A0005A1A9 /* pickleback.app */,
+				03D1001A16EC579A0005A1A9 /* Drink Tally.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,14 +204,14 @@
 				499FAC8D175BEBC600974A8D /* StartSessionButton.png */,
 				499FAC8E175BEBC600974A8D /* TallyDrinksButton.png */,
 				499FAC8F175BEBC600974A8D /* WineGlassButton.png */,
-				03D1002516EC579A0005A1A9 /* pickleback-Info.plist */,
+				03D1002516EC579A0005A1A9 /* Drink Tally-Info.plist */,
 				7582B159172B27350046DE2F /* pickleback57.png */,
 				7582B15A172B27350046DE2F /* pickleback72.png */,
 				7582B15B172B27350046DE2F /* pickleback114.png */,
 				7582B15C172B27350046DE2F /* pickleback144.png */,
 				03D1002616EC579A0005A1A9 /* InfoPlist.strings */,
 				03D1002916EC579A0005A1A9 /* main.m */,
-				03D1002B16EC579A0005A1A9 /* pickleback-Prefix.pch */,
+				03D1002B16EC579A0005A1A9 /* Drink Tally-Prefix.pch */,
 				03D1002F16EC579A0005A1A9 /* Default.png */,
 				03D1003116EC579A0005A1A9 /* Default@2x.png */,
 				03D1003316EC579A0005A1A9 /* Default-568h@2x.png */,
@@ -248,9 +248,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		03D1001916EC579A0005A1A9 /* pickleback */ = {
+		03D1001916EC579A0005A1A9 /* Drink Tally */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03D1004016EC579A0005A1A9 /* Build configuration list for PBXNativeTarget "pickleback" */;
+			buildConfigurationList = 03D1004016EC579A0005A1A9 /* Build configuration list for PBXNativeTarget "Drink Tally" */;
 			buildPhases = (
 				03D1001616EC579A0005A1A9 /* Sources */,
 				03D1001716EC579A0005A1A9 /* Frameworks */,
@@ -260,9 +260,9 @@
 			);
 			dependencies = (
 			);
-			name = pickleback;
+			name = "Drink Tally";
 			productName = pickleback;
-			productReference = 03D1001A16EC579A0005A1A9 /* pickleback.app */;
+			productReference = 03D1001A16EC579A0005A1A9 /* Drink Tally.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -275,7 +275,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = PBCo;
 			};
-			buildConfigurationList = 03D1001516EC579A0005A1A9 /* Build configuration list for PBXProject "pickleback" */;
+			buildConfigurationList = 03D1001516EC579A0005A1A9 /* Build configuration list for PBXProject "Drink Tally" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -287,7 +287,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				03D1001916EC579A0005A1A9 /* pickleback */,
+				03D1001916EC579A0005A1A9 /* Drink Tally */,
 			);
 		};
 /* End PBXProject section */
@@ -428,10 +428,10 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "pickleback/pickleback-Prefix.pch";
-				INFOPLIST_FILE = "pickleback/pickleback-Info.plist";
+				GCC_PREFIX_HEADER = "pickleback/Drink Tally-Prefix.pch";
+				INFOPLIST_FILE = "pickleback/Drink Tally-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Drink Tally";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -446,10 +446,10 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "pickleback/pickleback-Prefix.pch";
-				INFOPLIST_FILE = "pickleback/pickleback-Info.plist";
+				GCC_PREFIX_HEADER = "pickleback/Drink Tally-Prefix.pch";
+				INFOPLIST_FILE = "pickleback/Drink Tally-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Drink Tally";
 				"PROVISIONING_PROFILE[sdk=*]" = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
@@ -459,7 +459,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03D1001516EC579A0005A1A9 /* Build configuration list for PBXProject "pickleback" */ = {
+		03D1001516EC579A0005A1A9 /* Build configuration list for PBXProject "Drink Tally" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03D1003E16EC579A0005A1A9 /* Debug */,
@@ -468,7 +468,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		03D1004016EC579A0005A1A9 /* Build configuration list for PBXNativeTarget "pickleback" */ = {
+		03D1004016EC579A0005A1A9 /* Build configuration list for PBXNativeTarget "Drink Tally" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03D1004116EC579A0005A1A9 /* Debug */,

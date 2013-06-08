@@ -11,8 +11,9 @@
 @interface PBStartViewController : UIViewController <UIPickerViewDelegate>
 {
 	IBOutlet UIPickerView *pickerView;
-    IBOutlet UILabel *timerCountLabel;
+    IBOutlet UILabel *headerLabel;
     IBOutlet UILabel *sessionStatsLabel;
+    IBOutlet UILabel *countDownLabel;
     IBOutlet UIButton *startButton;
     IBOutlet UIButton *stopButton;
     NSArray *hourLabels;
@@ -21,8 +22,9 @@
     NSArray *minuteValues;
 }
 
-@property (nonatomic, strong) IBOutlet UILabel *timerCountLabel;
+@property (nonatomic, strong) IBOutlet UILabel *headerLabel;
 @property (nonatomic, strong) IBOutlet UILabel *sessionStatsLabel;
+@property (nonatomic, strong) IBOutlet UILabel *countDownLabel;
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 @property (nonatomic, strong) IBOutlet UIButton *startButton;
 @property (nonatomic, strong) IBOutlet UIButton *stopButton;

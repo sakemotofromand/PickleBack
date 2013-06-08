@@ -14,7 +14,7 @@
 
 @implementation PBStartViewController
 
-@synthesize pickerView, timerCountLabel, startButton, stopButton, sessionStatsLabel;
+@synthesize pickerView, headerLabel, startButton, stopButton, countDownLabel, sessionStatsLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,17 +52,17 @@
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.sessionId == 0)
     {
-        timerCountLabel.text = @"How often would you like to tally your drinks?";
+        headerLabel.text = @"How often would you like to tally your drinks?";
     } else
     {
-        timerCountLabel.text = @"Your next tally in:";
-        /*int secondsElapsed = [appDelegate.sessionStart timeIntervalSinceNow];
+        headerLabel.text = @"Your next tally in:";
+        int secondsElapsed = [appDelegate.sessionStart timeIntervalSinceNow];
         NSLog(@"Seconds elapsed: %d", secondsElapsed);
         int hours = (-1) * secondsElapsed / 3600;
         int minutes = (-1) * (secondsElapsed % 3600) / 60;
         int seconds = (-1) * (secondsElapsed % 3600) % 60;
         sessionStatsLabel.text = [NSString stringWithFormat:@"You´ve had %d drinks in %02d:%02d:%02d", appDelegate.sessionDrinks, hours, minutes, seconds];
-    */
+    
     }
 }
 
@@ -121,7 +121,7 @@
         int hours = appDelegate.timerSecondsLeft / 3600;
         int minutes = (appDelegate.timerSecondsLeft % 3600) / 60;
         int seconds = (appDelegate.timerSecondsLeft %3600) % 60;
-        sessionStatsLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+        countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
     } else
     {
         [self resetTimer];
@@ -136,9 +136,9 @@
     int hours = timerSecondsLeft / 3600;
     int minutes = (timerSecondsLeft % 3600) / 60;
     int seconds = (timerSecondsLeft % 3600) % 60;
-    timerCountLabel.text = @"Your next tally in:";
-    sessionStatsLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
-    timerCountLabel.numberOfLines = 2;
+    headerLabel.text = @"Your next tally in:";
+    countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+    headerLabel.numberOfLines = 2;
     appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decreaseTimerCount) userInfo:nil repeats:YES];
     NSDate *now = [NSDate date];
     NSLog(@"Now is %@",now);
@@ -198,8 +198,9 @@
     [appDelegate.timer invalidate];
     //appDelegate.sessionId = 0;
     appDelegate.sessionDrinks = 0;
-    timerCountLabel.text = @"How often would you like to tally your drinks?";
+    headerLabel.text = @"How often would you like to tally your drinks?";
     sessionStatsLabel.text = @"";
+    countDownLabel.text = @"";
     startButton.hidden = FALSE;
     stopButton.hidden = TRUE;
     pickerView.hidden = FALSE;
