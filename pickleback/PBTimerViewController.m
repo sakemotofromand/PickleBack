@@ -1,18 +1,18 @@
 //
-//  PBStartViewController.m
+//  PBTimerViewController.m
 //  pickleback
 //
 //  Created by Marc Visent Menardia on 4/25/13.
 //  Copyright (c) 2013 PB&Co. All rights reserved.
 //
 
-#import "PBStartViewController.h"
+#import "PBTimerViewController.h"
 #import "PBAppDelegate.h"
 #import "Datastore.h"
 #import <UIKit/UIKit.h>
 #import <stdlib.h>
 
-@implementation PBStartViewController
+@implementation PBTimerViewController
 
 @synthesize pickerView, headerLabel, startButton, stopButton, countDownLabel, sessionStatsLabel;
 
@@ -30,15 +30,15 @@
     [super viewDidLoad];
     hourLabels = [[NSArray alloc] initWithObjects:@"0 hours",@"1 hour",@"2 hours",@"3 hours", nil];
     hourValues = [[NSArray alloc] initWithObjects:@"0",@"3600",@"7200",@"10800", nil];
-    minuteLabels = [[NSArray alloc] initWithObjects:@"0 mins",@"15 mins",@"30 mins",@"45 mins", nil];
-    minuteValues = [[NSArray alloc] initWithObjects:@"0",@"900",@"1800",@"2700", nil];
+    minuteLabels = [[NSArray alloc] initWithObjects:@"0 mins",@"1 min",@"15 mins",@"30 mins",@"45 mins", nil];
+    minuteValues = [[NSArray alloc] initWithObjects:@"0",@"60",@"900",@"1800",@"2700", nil];
     pickerView.delegate = self;
     pickerView.showsSelectionIndicator = YES;
     [self.view addSubview:pickerView];
-    //PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     startButton.hidden = FALSE;
     stopButton.hidden = TRUE;
     pickerView.hidden = FALSE;
+    sessionStatsLabel.hidden = TRUE;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,19 +50,23 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
-    if (appDelegate.sessionId == 0)
+    if (appDelegate.sessionId == 0 || pickerView.hidden == FALSE)
     {
         headerLabel.text = @"How often would you like to tally your drinks?";
+        //Button has to say Finish instead of Cancel
+        [stopButton setImage:[UIImage imageNamed:@"CancelSessionButton.png"] forState:UIControlStateNormal];
     } else
     {
         headerLabel.text = @"Your next tally in:";
+        sessionStatsLabel.hidden = FALSE;
         int secondsElapsed = [appDelegate.sessionStart timeIntervalSinceNow];
         NSLog(@"Seconds elapsed: %d", secondsElapsed);
         int hours = (-1) * secondsElapsed / 3600;
         int minutes = (-1) * (secondsElapsed % 3600) / 60;
         int seconds = (-1) * (secondsElapsed % 3600) % 60;
         sessionStatsLabel.text = [NSString stringWithFormat:@"You´ve had %d drinks in %02d:%02d:%02d", appDelegate.sessionDrinks, hours, minutes, seconds];
-    
+        //Button has to say Finish instead of Cancel
+        [stopButton setImage:[UIImage imageNamed:@"FinishSessionButton.png"] forState:UIControlStateNormal];
     }
 }
 
@@ -80,7 +84,6 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     NSUInteger numRows = 4;
-    
     return numRows;
 }
 
@@ -156,7 +159,7 @@
     localNotif.fireDate = scheduled;
     localNotif.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EDT"];
     
-    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Enter drinks", nil),
+    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"How many drinks have you had?", nil),
                             timerSecondsLeft*60];
     localNotif.alertAction = NSLocalizedString(@"View Details", nil);
     
@@ -196,8 +199,7 @@
 {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.timer invalidate];
-    //appDelegate.sessionId = 0;
-    appDelegate.sessionDrinks = 0;
+    appDelegate.sessionDrinks = -1;
     headerLabel.text = @"How often would you like to tally your drinks?";
     sessionStatsLabel.text = @"";
     countDownLabel.text = @"";

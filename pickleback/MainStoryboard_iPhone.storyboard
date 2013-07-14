@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Todo List View Controller - Counter-->
+        <!--Counter View Controller - Counter-->
         <scene sceneID="fvY-eI-xPc">
             <objects>
-                <viewController id="L1X-Pf-6Mg" customClass="PBTodoListViewController" sceneMemberID="viewController">
+                <viewController id="L1X-Pf-6Mg" customClass="PBCounterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gCg-5T-fcj">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -27,10 +27,6 @@
                                     <action selector="onAdd:" destination="L1X-Pf-6Mg" eventType="touchUpInside" id="5Hi-gf-Yfx"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="oKL-Dt-wFv">
-                                <rect key="frame" x="9" y="-12" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7oa-ud-WuD">
                                 <rect key="frame" x="115" y="60" width="60" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,10 +133,9 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Counter" image="CounterIcon.png" id="RJ0-VX-qGh"/>
+                    <tabBarItem key="tabBarItem" title="Counter" image="Edit-Vector.png" id="RJ0-VX-qGh"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="oKL-Dt-wFv" id="F0w-HY-jFI"/>
                         <outlet property="beersButton" destination="sQw-9c-DWT" id="ElL-5M-axD"/>
                         <outlet property="beersLabel" destination="7oa-ud-WuD" id="WM0-Pw-1NZ"/>
                         <outlet property="clearButton" destination="jJa-PK-EvM" id="jaM-2G-L4C"/>
@@ -166,51 +161,62 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3 drinks in this session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ts4-bc-X6d">
-                                <rect key="frame" x="43" y="80" width="223" height="21"/>
+                                <rect key="frame" x="43" y="110" width="223" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3 drinks in the last hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="map-Kg-kV9">
-                                <rect key="frame" x="43" y="109" width="223" height="21"/>
+                                <rect key="frame" x="43" y="139" width="223" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3 drinks in the last day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Qk-GN-CpR">
-                                <rect key="frame" x="43" y="138" width="223" height="21"/>
+                                <rect key="frame" x="43" y="168" width="223" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You've had..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X6h-c5-DzH">
-                                <rect key="frame" x="17" y="41" width="144" height="21"/>
+                                <rect key="frame" x="17" y="71" width="144" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3 drinks in the last week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aVM-RK-BGd">
-                                <rect key="frame" x="43" y="167" width="223" height="21"/>
+                                <rect key="frame" x="43" y="197" width="223" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3 drinks in the last month" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qFU-GE-BUb">
-                                <rect key="frame" x="43" y="196" width="223" height="21"/>
+                                <rect key="frame" x="43" y="226" width="223" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settingsIcon.png" id="hmi-ON-HRX">
+                                <rect key="frame" x="259" y="5" width="52" height="47"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w7s-md-qDF">
+                                <rect key="frame" x="254" y="43" width="62" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" image="MeIcon.png" id="Ppe-nR-3Zp"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="User-Male-Alt-Vector.png" id="Ppe-nR-3Zp"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="countLastDay" destination="5Qk-GN-CpR" id="4WC-FS-F9Z"/>
@@ -224,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="-274" y="100"/>
         </scene>
-        <!--Start View Controller - Timer-->
+        <!--Timer View Controller - Timer-->
         <scene sceneID="7GG-8k-cRR">
             <objects>
-                <viewController id="MKa-1S-2WM" customClass="PBStartViewController" sceneMemberID="viewController">
+                <viewController id="MKa-1S-2WM" customClass="PBTimerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e5Q-ok-Vpu">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -289,7 +295,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Timer" image="StopWatchIcon.png" id="oa6-UU-JlK"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="Clock-Vector.png" id="oa6-UU-JlK"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="countDownLabel" destination="q5H-fr-eez" id="6t7-sL-5UW"/>
@@ -330,40 +336,18 @@
         <image name="BeerMugButton.png" width="96" height="120"/>
         <image name="CancelSessionButton.png" width="556" height="90"/>
         <image name="ClassicCocktailButton.png" width="87" height="100"/>
-        <image name="CounterIcon.png" width="30" height="30"/>
-        <image name="MeIcon.png" width="30" height="30"/>
+        <image name="Clock-Vector.png" width="30" height="30"/>
+        <image name="Edit-Vector.png" width="30" height="30"/>
         <image name="ShotButton.png" width="87" height="86"/>
         <image name="StartSessionButton.png" width="558" height="93"/>
-        <image name="StopWatchIcon.png" width="30" height="30"/>
         <image name="TallyDrinksButton.png" width="556" height="90"/>
+        <image name="User-Male-Alt-Vector.png" width="30" height="30"/>
         <image name="WineGlassButton.png" width="63" height="104"/>
+        <image name="settingsIcon.png" width="32" height="32"/>
     </resources>
     <classes>
-        <class className="PBMeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBMeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="countLastDay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countLastHour" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countLastMonth" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countLastWeek" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countThisSession" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PBStartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBStartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startSession"/>
-                <relationship kind="action" name="stopSession"/>
-                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="sessionStatsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="PBTodoListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBTodoListViewController.h"/>
+        <class className="PBCounterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBCounterViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addDrink:" candidateClass="UIButton"/>
                 <relationship kind="action" name="clearValues:" candidateClass="UIButton"/>
@@ -381,6 +365,29 @@
                 <relationship kind="outlet" name="shotsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="winesButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="winesLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PBMeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBMeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="countLastDay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLastHour" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLastMonth" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLastWeek" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countThisSession" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PBTimerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBTimerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startSession"/>
+                <relationship kind="action" name="stopSession"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="sessionStatsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

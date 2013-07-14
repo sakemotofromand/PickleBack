@@ -1,5 +1,5 @@
 //
-//  PBStartViewController.h
+//  PBTimerViewController.h
 //  pickleback
 //
 //  Created by Marc Visent Menardia on 4/25/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PBStartViewController : UIViewController <UIPickerViewDelegate>
+@interface PBTimerViewController : UIViewController <UIPickerViewDelegate>
 {
 	IBOutlet UIPickerView *pickerView;
     IBOutlet UILabel *headerLabel;

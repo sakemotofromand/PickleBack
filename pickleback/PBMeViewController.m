@@ -47,11 +47,11 @@
     for (NSDictionary *i in items) {
         //In this session
         if (appDelegate.sessionId == [[i objectForKey:@"sessionID"] intValue]) countSession = countSession + [[i objectForKey:@"count"] intValue];
-        NSLog(@"Time:%@",[i objectForKey:@"time"]);
+        //NSLog(@"Time:%@",[i objectForKey:@"time"]);
         //In last 4 hours
         int secondsElapsed = (-1)*[[i objectForKey:@"time"] timeIntervalSinceNow];
         //Crec que time no va... aquí hi ha algo raro amb els counts....
-        NSLog(@"Seconds elapsed:%d",secondsElapsed);
+        //NSLog(@"Seconds elapsed:%d",secondsElapsed);
         if (secondsElapsed < 60*60) count1h = count1h + [[i objectForKey:@"count"] intValue];
         //In last 24h
         if (secondsElapsed < 24*60*60) count1d = count1d + [[i objectForKey:@"count"] intValue];

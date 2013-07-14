@@ -1,5 +1,5 @@
 //
-//  PBHomeViewController.h
+//  PBSettingsViewController
 //  pickleback
 //
 //  Created by Marc Visent Menardia on 4/25/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PBHomeViewController : UIViewController
+@interface PBSettingsViewController : UIViewController
 {
     IBOutlet UILabel *timerCountLabel;
     NSTimer *timer;

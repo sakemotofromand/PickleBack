@@ -41,7 +41,7 @@
     timerSecondsLeft = 5; //first position of the array, otherwise it doesn't work if user doesnt touch the picker view
     timerInitialSecondsLeft = 0;
     sessionId = 0;
-    sessionDrinks = 0;
+    sessionDrinks = -1;
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif)
@@ -113,11 +113,11 @@
     //We have to recalculat the countdown if applicable
     if (timerSecondsLeft > 0)
     {
-        NSLog(@"Initial Seconds left: %d", timerInitialSecondsLeft);
-        NSLog(@"Seconds left when went to background: %d", timerSecondsLeft);
+        //NSLog(@"Initial Seconds left: %d", timerInitialSecondsLeft);
+        //NSLog(@"Seconds left when went to background: %d", timerSecondsLeft);
         //Recalculate countdown
         int secondsElapsed = [timerStart timeIntervalSinceNow];
-        NSLog(@"Seconds elapsed: %d", secondsElapsed);
+        //NSLog(@"Seconds elapsed: %d", secondsElapsed);
         timerSecondsLeft = timerInitialSecondsLeft + secondsElapsed;
     }
 }

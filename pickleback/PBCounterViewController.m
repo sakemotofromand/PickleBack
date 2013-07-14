@@ -15,7 +15,7 @@
 //
 
 #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
-#import "PBTodoListViewController.h"
+#import "PBCounterViewController.h"
 #import "PBTodoService.h"
 #import "PBAppDelegate.h"
 #import "Datastore.h"
@@ -24,7 +24,7 @@
 #pragma mark * Private Interface
 
 
-@interface PBTodoListViewController ()
+@interface PBCounterViewController ()
 
 // Private properties
 @property (strong, nonatomic)   PBTodoService   *todoService;
@@ -36,7 +36,7 @@
 #pragma mark * Implementation
 
 
-@implementation PBTodoListViewController
+@implementation PBCounterViewController
 
 @synthesize todoService;
 @synthesize itemText;
@@ -55,7 +55,7 @@
 - (void)initView
 {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
-    if (appDelegate.sessionId == 0)
+    if (appDelegate.sessionDrinks == -1)
     {
         beersLabel.hidden = TRUE;
         winesLabel.hidden = TRUE;
@@ -274,6 +274,7 @@
              }];
         }
         appDelegate.sessionDrinks = appDelegate.sessionDrinks + value;
+        NSLog(@"I cross this line with %d",appDelegate.sessionDrinks);
         drinksValue[i] = 0;
     }
     itemText.text = @"";
