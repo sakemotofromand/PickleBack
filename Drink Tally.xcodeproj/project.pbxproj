@@ -472,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Joe Morris (6RZM5ZP8D7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Joe Morris (6RZM5ZP8D7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -482,6 +483,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "Drink Tally";
 				PROVISIONING_PROFILE = "65E04264-37D5-45A6-81E2-4278A3D10DC1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0C5F8D1-520E-48A9-B030-34F5558969DD";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -500,7 +502,7 @@
 				INFOPLIST_FILE = "pickleback/Drink Tally-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "Drink Tally";
-				"PROVISIONING_PROFILE[sdk=*]" = "D20A1CE9-9E1E-47F2-A7D4-2F83A5F38F95";
+				"PROVISIONING_PROFILE[sdk=*]" = "59B2BECB-8BBD-4F73-9B56-4EDD7A6D54D7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};

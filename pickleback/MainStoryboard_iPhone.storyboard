@@ -202,11 +202,11 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settingsIcon.png" id="hmi-ON-HRX">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="settingsIcon.png" id="hmi-ON-HRX">
                                 <rect key="frame" x="259" y="5" width="52" height="47"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w7s-md-qDF">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w7s-md-qDF">
                                 <rect key="frame" x="254" y="43" width="62" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -345,52 +345,6 @@
         <image name="WineGlassButton.png" width="63" height="104"/>
         <image name="settingsIcon.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="PBCounterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBCounterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addDrink:" candidateClass="UIButton"/>
-                <relationship kind="action" name="clearValues:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onAdd:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="beersButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="beersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="clearButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="confirmButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="headerInfo" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="itemText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mixedButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mixedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="shotsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shotsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="winesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="winesLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PBMeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBMeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="countLastDay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countLastHour" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countLastMonth" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countLastWeek" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="countThisSession" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PBTimerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBTimerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startSession"/>
-                <relationship kind="action" name="stopSession"/>
-                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="sessionStatsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
