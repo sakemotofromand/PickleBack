@@ -250,6 +250,7 @@
 
 - (IBAction)onAdd:(id)sender
 {
+    [TestFlight passCheckpoint:@"TALLY_DRINKS"];
     if (drinksValue[0] + drinksValue[1] + drinksValue[2] + drinksValue[3] == 0)
     {
         return;
@@ -314,6 +315,7 @@
 
 - (IBAction)clearValues:(UIButton*) sender
 {
+    [TestFlight passCheckpoint:@"CLEAR_VALUES"];
     drinksValue[0] = 0;
     drinksValue[1] = 0;
     drinksValue[2] = 0;
@@ -327,6 +329,7 @@
 
 - (IBAction)addDrink:(UIButton*) sender
 {
+    [TestFlight passCheckpoint:@"ADD_DRINK"];
     drinksValue[sender.tag] = drinksValue[sender.tag] + 1;
     switch (sender.tag)
     {
@@ -345,7 +348,9 @@
     }
 }
 
-
+-(IBAction)launchFeedback {
+    [TestFlight openFeedbackView];
+}
 
 
 @end

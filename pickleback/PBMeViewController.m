@@ -36,6 +36,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [TestFlight passCheckpoint:@"GO_TO_ME_TAB"];
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     //Let's count drinks
     int countSession = 0;
@@ -78,6 +79,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)launchFeedback {
+    [TestFlight openFeedbackView];
 }
 
 @end

@@ -183,6 +183,7 @@
 
 - (IBAction)startSession
 {
+    [TestFlight passCheckpoint:@"START_SESSION"];
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.timerInitialSecondsLeft == 0) return;
     startButton.hidden = TRUE;
@@ -197,6 +198,7 @@
 
 - (IBAction)stopSession
 {
+    [TestFlight passCheckpoint:@"STOP_SESSION"];
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.timer invalidate];
     appDelegate.sessionDrinks = -1;
@@ -209,6 +211,10 @@
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     appDelegate.tabBar.selectedIndex = 2;
     //[timer release];
+}
+
+-(IBAction)launchFeedback {
+    [TestFlight openFeedbackView];
 }
 
 

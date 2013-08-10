@@ -17,6 +17,7 @@
 #import "PBAppDelegate.h"
 #import "OpenUDID.h"
 #import "SecureUDID.h"
+#import "TestFlight.h"
 
 
 @implementation PBAppDelegate
@@ -34,6 +35,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Use during beta only!!
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    //TestFlightApp Code
+    [TestFlight takeOff:@"3296aa1d-f8bb-4277-8a43-8f3044af10a9"];
+    // The rest of your application:didFinishLaunchingWithOptions method// ...
+    
     //Set up tabBar
     tabBar = (UITabBarController*)self.window.rootViewController;
     //Handle launching from a notification
@@ -64,6 +71,10 @@
 
     NSArray *contentArray = [[NSArray alloc] initWithContentsOfFile:path];
     NSLog(@"I load %d",[contentArray count]);
+    
+    
+ 
+    
     return YES;
 
 }
@@ -91,6 +102,7 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notif
 {
+    [TestFlight passCheckpoint:@"PUSH_NOTIFICATION"];
     if (sessionId == 0) return;
     NSLog(@"Application: didReceiveLocalNotification:");
     NSLog(@"Receive Local Notification while the app is still running...");
@@ -103,12 +115,14 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [TestFlight passCheckpoint:@"ENTER_BACKGROUND"];
     //Cancel timer
     //if (timer != nil) [timer invalidate];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [TestFlight passCheckpoint:@"ENTER_FOREGROUND"];
     //Back from background
     //We have to recalculat the countdown if applicable
     if (timerSecondsLeft > 0)

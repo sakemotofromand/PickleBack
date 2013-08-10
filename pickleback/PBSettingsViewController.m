@@ -34,5 +34,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)launchFeedback {
+    [TestFlight openFeedbackView];
+}
 
 @end

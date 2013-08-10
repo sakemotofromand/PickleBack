@@ -22,6 +22,10 @@
 		03D1004E16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */; };
 		03D1006016EC63620005A1A9 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */; };
 		4961C3EC1764D3C200B501DF /* FinishSessionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4961C3EB1764D3C100B501DF /* FinishSessionButton.png */; };
+		4994875517B5B898006C670F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4994875117B5B898006C670F /* libTestFlight.a */; };
+		4994875617B5B898006C670F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4994875217B5B898006C670F /* README.md */; };
+		4994875717B5B898006C670F /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4994875317B5B898006C670F /* release_notes.md */; };
+		4994875917B5B919006C670F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4994875817B5B919006C670F /* libz.dylib */; };
 		49949CAC176E115C0084FE3B /* topBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 49949CAB176E115C0084FE3B /* topBar.png */; };
 		49949CAE176E13000084FE3B /* Help-Button-Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 49949CAD176E13000084FE3B /* Help-Button-Settings.png */; };
 		49949CB0176E14510084FE3B /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49949CAF176E14510084FE3B /* settingsIcon.png */; };
@@ -87,6 +91,11 @@
 		03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
 		4961C3EB1764D3C100B501DF /* FinishSessionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinishSessionButton.png; sourceTree = "<group>"; };
+		4994875117B5B898006C670F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		4994875217B5B898006C670F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4994875317B5B898006C670F /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		4994875417B5B898006C670F /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		4994875817B5B919006C670F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		49949CAB176E115C0084FE3B /* topBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topBar.png; sourceTree = "<group>"; };
 		49949CAD176E13000084FE3B /* Help-Button-Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Help-Button-Settings.png"; sourceTree = "<group>"; };
 		49949CAF176E14510084FE3B /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
@@ -144,12 +153,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4994875917B5B919006C670F /* libz.dylib in Frameworks */,
 				75B1688D1731CFEB004710A8 /* libsqlite3.0.dylib in Frameworks */,
 				75B1688E1731CFEB004710A8 /* libsqlite3.dylib in Frameworks */,
 				03D1001E16EC579A0005A1A9 /* UIKit.framework in Frameworks */,
 				03D1002016EC579A0005A1A9 /* Foundation.framework in Frameworks */,
 				03D1002216EC579A0005A1A9 /* CoreGraphics.framework in Frameworks */,
 				03D1006016EC63620005A1A9 /* WindowsAzureMobileServices.framework in Frameworks */,
+				4994875517B5B898006C670F /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +170,8 @@
 		03D1001116EC579A0005A1A9 = {
 			isa = PBXGroup;
 			children = (
+				4994875817B5B919006C670F /* libz.dylib */,
+				4994875017B5B898006C670F /* TestFlightSDK1.2.6 */,
 				75B1688B1731CFEB004710A8 /* libsqlite3.0.dylib */,
 				75B168891731CF7A004710A8 /* pickleback.db */,
 				75B1688C1731CFEB004710A8 /* libsqlite3.dylib */,
@@ -253,6 +266,17 @@
 				03D1003316EC579A0005A1A9 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4994875017B5B898006C670F /* TestFlightSDK1.2.6 */ = {
+			isa = PBXGroup;
+			children = (
+				4994875117B5B898006C670F /* libTestFlight.a */,
+				4994875217B5B898006C670F /* README.md */,
+				4994875317B5B898006C670F /* release_notes.md */,
+				4994875417B5B898006C670F /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.2.6;
 			sourceTree = "<group>";
 		};
 		75597C27172F38EF009B1EB7 /* UDID */ = {
@@ -370,6 +394,8 @@
 				49FF5D7B17934D2800E2C55B /* User-Male-Alt-Vector@2x.png in Resources */,
 				49FF5D7E17934D3200E2C55B /* Edit-Vector@2x.png in Resources */,
 				49FF5D7F17934D3200E2C55B /* Edit-Vector.png in Resources */,
+				4994875617B5B898006C670F /* README.md in Resources */,
+				4994875717B5B898006C670F /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +507,10 @@
 				GCC_PREFIX_HEADER = "pickleback/Drink Tally-Prefix.pch";
 				INFOPLIST_FILE = "pickleback/Drink Tally-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1.2.6\"",
+				);
 				PRODUCT_NAME = "Drink Tally";
 				PROVISIONING_PROFILE = "65E04264-37D5-45A6-81E2-4278A3D10DC1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0C5F8D1-520E-48A9-B030-34F5558969DD";
@@ -501,6 +531,10 @@
 				GCC_PREFIX_HEADER = "pickleback/Drink Tally-Prefix.pch";
 				INFOPLIST_FILE = "pickleback/Drink Tally-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1.2.6\"",
+				);
 				PRODUCT_NAME = "Drink Tally";
 				"PROVISIONING_PROFILE[sdk=*]" = "59B2BECB-8BBD-4F73-9B56-4EDD7A6D54D7";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
