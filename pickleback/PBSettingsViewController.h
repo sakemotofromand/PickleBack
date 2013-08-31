@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PBSettingsViewController : UIViewController
-{
+@interface PBSettingsViewController : UIViewController {
     IBOutlet UILabel *timerCountLabel;
     NSTimer *timer;
     int timerCount;

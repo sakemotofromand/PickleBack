@@ -33,8 +33,7 @@
 @synthesize secureUDID;
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Use during beta only!!
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
     //TestFlightApp Code
@@ -51,8 +50,7 @@
     sessionDrinks = -1;
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotif)
-    {
+    if (localNotif) {
         NSLog(@"Recieved Notification %@",localNotif);
     }
     /* Use following code to create open ID
@@ -71,16 +69,10 @@
 
     NSArray *contentArray = [[NSArray alloc] initWithContentsOfFile:path];
     NSLog(@"I load %d",[contentArray count]);
-    
-    
- 
-    
     return YES;
-
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     tabBar.selectedIndex = 1;
 }
 
@@ -100,10 +92,9 @@
  }
 */
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notif
-{
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notif {
     [TestFlight passCheckpoint:@"PUSH_NOTIFICATION"];
-    if (sessionId == 0) return;
+    if (sessionId == 0 || timer == NULL) return;
     NSLog(@"Application: didReceiveLocalNotification:");
     NSLog(@"Receive Local Notification while the app is still running...");
     NSLog(@"Current notification is %@",notif);
@@ -113,20 +104,17 @@
     tabBar.selectedIndex = 1;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
+-(void)applicationDidEnterBackground:(UIApplication *)application {
     [TestFlight passCheckpoint:@"ENTER_BACKGROUND"];
     //Cancel timer
     //if (timer != nil) [timer invalidate];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+-(void)applicationWillEnterForeground:(UIApplication *)application {
     [TestFlight passCheckpoint:@"ENTER_FOREGROUND"];
     //Back from background
     //We have to recalculat the countdown if applicable
-    if (timerSecondsLeft > 0)
-    {
+    if (timerSecondsLeft > 0) {
         //NSLog(@"Initial Seconds left: %d", timerInitialSecondsLeft);
         //NSLog(@"Seconds left when went to background: %d", timerSecondsLeft);
         //Recalculate countdown
@@ -135,4 +123,12 @@
         timerSecondsLeft = timerInitialSecondsLeft + secondsElapsed;
     }
 }
+
+-(void)applicationDidBecomeActive:(UIApplication *)application {
+    application.applicationIconBadgeNumber = 0;
+    if (sessionId != 0 && timer != NULL) {
+        tabBar.selectedIndex = 1;
+    }
+}
+
 @end

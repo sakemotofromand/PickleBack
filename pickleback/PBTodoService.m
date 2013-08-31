@@ -39,8 +39,7 @@
 @synthesize items;
 
 
-+ (PBTodoService *)defaultService
-{
++(PBTodoService *)defaultService {
     // Create a singleton instance of PBTodoService
     static PBTodoService* service;
     static dispatch_once_t onceToken;
@@ -51,8 +50,7 @@
     return service;
 }
 
--(PBTodoService *)init
-{
+-(PBTodoService *)init {
     self = [super init];
     
     if (self)
@@ -95,8 +93,7 @@
 */
 
 
- - (void)getUserData:(QSCompletionBlock)completion
- {
+ -(void)getUserData:(QSCompletionBlock)completion {
      PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
      
      // Create a predicate that finds items where userID is secureUDID
@@ -142,8 +139,7 @@
  */
  }
 
--(void)addItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
-{
+-(void)addItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion {
     // Insert the item into the TodoItem table and add to the items array on completion
     [self.table insert:item completion:^(NSDictionary *result, NSError *error)
     {

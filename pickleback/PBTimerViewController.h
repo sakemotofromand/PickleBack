@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PBTimerViewController : UIViewController <UIPickerViewDelegate>
-{
+@interface PBTimerViewController : UIViewController <UIPickerViewDelegate> {
 	IBOutlet UIPickerView *pickerView;
     IBOutlet UILabel *headerLabel;
     IBOutlet UILabel *sessionStatsLabel;
@@ -29,10 +28,10 @@
 @property (nonatomic, strong) IBOutlet UIButton *startButton;
 @property (nonatomic, strong) IBOutlet UIButton *stopButton;
 
-- (void)decreaseTimerCount;
-- (IBAction)startSession;
-- (IBAction)stopSession;
-- (void)resetTimer;
-- (void)initTimer;
+-(void)decreaseTimerCount;
+-(IBAction)startSession;
+-(IBAction)stopSession;
+-(void)resetTimer;
+-(void)initTimer;
 
 @end

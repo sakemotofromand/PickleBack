@@ -16,8 +16,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PBAppDelegate : UIResponder <UIApplicationDelegate>
-{
+@interface PBAppDelegate : UIResponder <UIApplicationDelegate> {
     UIBackgroundTaskIdentifier bgTask;
     int sessionId;
     int sessionDrinks;
