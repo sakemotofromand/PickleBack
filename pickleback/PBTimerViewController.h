@@ -11,6 +11,7 @@
 @interface PBTimerViewController : UIViewController <UIPickerViewDelegate> {
 	IBOutlet UIPickerView *pickerView;
     IBOutlet UILabel *headerLabel;
+    IBOutlet UILabel *yourNextTally;
     IBOutlet UILabel *sessionStatsLabel;
     IBOutlet UILabel *countDownLabel;
     IBOutlet UIButton *startButton;

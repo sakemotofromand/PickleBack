@@ -16,7 +16,7 @@
                                 <rect key="frame" x="21" y="333" width="278" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Confirm" image="TallyDrinksButton.png">
+                                <state key="normal" title="Confirm" image="NoDrinksToTally.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -116,7 +116,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jJa-PK-EvM">
-                                <rect key="frame" x="117" y="368" width="96" height="44"/>
+                                <rect key="frame" x="117" y="376" width="96" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Clear tally">
@@ -308,17 +308,17 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:12:12" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q5H-fr-eez">
-                                <rect key="frame" x="10" y="168" width="301" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q5H-fr-eez">
+                                <rect key="frame" x="168" y="293" width="114" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="56"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="80w-zI-cjj">
-                                <rect key="frame" x="27" y="301" width="266" height="22"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="80w-zI-cjj">
+                                <rect key="frame" x="26" y="137" width="266" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="27"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -337,6 +337,13 @@
                                     <action selector="launchFeedback" destination="MKa-1S-2WM" eventType="touchUpInside" id="OzX-eP-PzR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your next tally in:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x0Q-1a-WH0">
+                                <rect key="frame" x="43" y="302" width="137" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
@@ -349,6 +356,7 @@
                         <outlet property="sessionStatsLabel" destination="80w-zI-cjj" id="A43-2q-qZ4"/>
                         <outlet property="startButton" destination="rYg-mV-kZb" id="Huc-BN-g3n"/>
                         <outlet property="stopButton" destination="Lxv-th-m9P" id="mzp-qe-8V5"/>
+                        <outlet property="yourNextTally" destination="x0Q-1a-WH0" id="xzt-wq-tMf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWR-Ce-Z27" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -383,13 +391,60 @@
         <image name="ClassicCocktailButton.png" width="87" height="100"/>
         <image name="Clock-Vector.png" width="30" height="30"/>
         <image name="Edit-Vector.png" width="30" height="30"/>
+        <image name="NoDrinksToTally.png" width="556" height="90"/>
         <image name="ShotButton.png" width="87" height="86"/>
         <image name="StartSessionButton.png" width="558" height="93"/>
-        <image name="TallyDrinksButton.png" width="556" height="90"/>
         <image name="User-Male-Alt-Vector.png" width="30" height="30"/>
         <image name="WineGlassButton.png" width="63" height="104"/>
         <image name="settingsIcon.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="PBCounterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBCounterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addDrink:" candidateClass="UIButton"/>
+                <relationship kind="action" name="clearValues:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onAdd:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="beersButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="beersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="clearButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="confirmButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="headerInfo" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="itemText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mixedButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mixedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shotsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shotsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="winesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="winesLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PBMeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBMeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="countLastDay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLastHour" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLastMonth" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countLastWeek" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countThisSession" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PBTimerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PBTimerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startSession"/>
+                <relationship kind="action" name="stopSession"/>
+                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pickerView" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="sessionStatsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="yourNextTally" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

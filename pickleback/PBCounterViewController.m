@@ -251,13 +251,14 @@
 - (IBAction)onAdd:(id)sender
 {
     [TestFlight passCheckpoint:@"TALLY_DRINKS"];
+    PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (drinksValue[0] + drinksValue[1] + drinksValue[2] + drinksValue[3] == 0)
     {
+        appDelegate.tabBar.selectedIndex = 0;
         return;
     }
     NSDictionary *item = NULL;
     //UITableView *view = self.tableView;
-    PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     for (int i = 0;i < MAX_DRINKS_TYPE;i++)
     {
         int value = drinksValue[i];
@@ -316,6 +317,7 @@
 - (IBAction)clearValues:(UIButton*) sender
 {
     [TestFlight passCheckpoint:@"CLEAR_VALUES"];
+    [confirmButton setImage:[UIImage imageNamed:@"NoDrinksToTally.png"] forState:UIControlStateNormal];
     drinksValue[0] = 0;
     drinksValue[1] = 0;
     drinksValue[2] = 0;
@@ -331,6 +333,7 @@
 {
     [TestFlight passCheckpoint:@"ADD_DRINK"];
     drinksValue[sender.tag] = drinksValue[sender.tag] + 1;
+    [confirmButton setImage:[UIImage imageNamed:@"TallyDrinksButton.png"] forState:UIControlStateNormal];
     switch (sender.tag)
     {
         case 0:

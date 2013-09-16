@@ -94,7 +94,7 @@
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notif {
     [TestFlight passCheckpoint:@"PUSH_NOTIFICATION"];
-    if (sessionId == 0 || timer == NULL) return;
+    if (sessionId == 0 || timer == NULL || timer == nil) return;
     NSLog(@"Application: didReceiveLocalNotification:");
     NSLog(@"Receive Local Notification while the app is still running...");
     NSLog(@"Current notification is %@",notif);
@@ -127,7 +127,7 @@
 -(void)applicationDidBecomeActive:(UIApplication *)application {
     application.applicationIconBadgeNumber = 0;
     if (sessionId != 0 && timer != NULL) {
-        tabBar.selectedIndex = 1;
+        if (tabBar != nil) tabBar.selectedIndex = 1;
     }
 }
 

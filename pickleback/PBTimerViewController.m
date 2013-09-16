@@ -44,6 +44,7 @@
     stopButton.hidden = TRUE;
     pickerView.hidden = FALSE;
     sessionStatsLabel.hidden = TRUE;
+    yourNextTally.hidden = TRUE;
 }
 
 -(void)didReceiveMemoryWarning {
@@ -54,11 +55,12 @@
 -(void)viewWillAppear:(BOOL)animated {
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.sessionId == 0 || pickerView.hidden == FALSE) {
-        headerLabel.text = @"How often would you like to tally your drinks?";
+        //headerLabel.text = @"How often would you like to tally your drinks?";
         //Button has to say Finish instead of Cancel
         [stopButton setImage:[UIImage imageNamed:@"CancelSessionButton.png"] forState:UIControlStateNormal];
     } else {
-        headerLabel.text = @"Your next tally in:";
+        headerLabel.hidden = TRUE;
+        yourNextTally.hidden = FALSE;
         sessionStatsLabel.hidden = FALSE;
         int secondsElapsed = [appDelegate.sessionStart timeIntervalSinceNow];
         NSLog(@"Seconds elapsed: %d", secondsElapsed);
@@ -129,9 +131,10 @@
     int hours = timerSecondsLeft / 3600;
     int minutes = (timerSecondsLeft % 3600) / 60;
     int seconds = (timerSecondsLeft % 3600) % 60;
-    headerLabel.text = @"Your next tally in:";
+    headerLabel.hidden = TRUE;
+    yourNextTally.hidden = FALSE;
+    sessionStatsLabel.hidden = FALSE;
     countDownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
-    headerLabel.numberOfLines = 2;
     appDelegate.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decreaseTimerCount) userInfo:nil repeats:YES];
     NSDate *now = [NSDate date];
     NSLog(@"Now is %@",now);
@@ -176,6 +179,7 @@
     if (appDelegate.timerInitialSecondsLeft == 0) return;
     startButton.hidden = TRUE;
     stopButton.hidden = FALSE;
+    sessionStatsLabel.hidden = FALSE;
     pickerView.hidden = TRUE;
     appDelegate.sessionId = arc4random();
     appDelegate.sessionDrinks = 0;
@@ -189,12 +193,14 @@
     PBAppDelegate* appDelegate = (PBAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate.timer invalidate];
     appDelegate.sessionDrinks = -1;
-    headerLabel.text = @"How often would you like to tally your drinks?";
+    //headerLabel.text = @"How often would you like to tally your drinks?";
     sessionStatsLabel.text = @"";
     countDownLabel.text = @"";
     startButton.hidden = FALSE;
     stopButton.hidden = TRUE;
     pickerView.hidden = FALSE;
+    yourNextTally.hidden = TRUE;
+    headerLabel.hidden = FALSE;
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     appDelegate.tabBar.selectedIndex = 2;
     //[timer release];
