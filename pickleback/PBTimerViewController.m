@@ -57,7 +57,7 @@
     if (appDelegate.sessionId == 0 || pickerView.hidden == FALSE) {
         //headerLabel.text = @"How often would you like to tally your drinks?";
         //Button has to say Finish instead of Cancel
-        [stopButton setImage:[UIImage imageNamed:@"CancelSessionButton.png"] forState:UIControlStateNormal];
+        //[stopButton setImage:[UIImage imageNamed:@"CancelSessionButton.png"] forState:UIControlStateNormal];
     } else {
         headerLabel.hidden = TRUE;
         yourNextTally.hidden = FALSE;
@@ -69,7 +69,7 @@
         int seconds = (-1) * (secondsElapsed % 3600) % 60;
         sessionStatsLabel.text = [NSString stringWithFormat:@"You´ve had %d drinks in %02d:%02d:%02d", appDelegate.sessionDrinks, hours, minutes, seconds];
         //Button has to say Finish instead of Cancel
-        [stopButton setImage:[UIImage imageNamed:@"FinishSessionButton.png"] forState:UIControlStateNormal];
+        //[stopButton setImage:[UIImage imageNamed:@"FinishSessionButton.png"] forState:UIControlStateNormal];
     }
 }
 
@@ -185,6 +185,7 @@
     appDelegate.sessionDrinks = 0;
     appDelegate.sessionStart = [NSDate date];
     NSLog(@"New Session!:%d",appDelegate.sessionId);
+    sessionStatsLabel.text = @"You'll ping you when the time is up!";
     [self initTimer];
 }
 

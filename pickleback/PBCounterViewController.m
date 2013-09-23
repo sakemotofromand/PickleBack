@@ -333,7 +333,7 @@
 {
     [TestFlight passCheckpoint:@"ADD_DRINK"];
     drinksValue[sender.tag] = drinksValue[sender.tag] + 1;
-    [confirmButton setImage:[UIImage imageNamed:@"TallyDrinksButton.png"] forState:UIControlStateNormal];
+    //[confirmButton setImage:[UIImage imageNamed:@"TallyDrinksButton.png"] forState:UIControlStateNormal];
     switch (sender.tag)
     {
         case 0:

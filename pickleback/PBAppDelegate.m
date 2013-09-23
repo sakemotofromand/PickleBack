@@ -35,7 +35,9 @@
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //Use during beta only!!
-    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    //[TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    
+    
     //TestFlightApp Code
     [TestFlight takeOff:@"3296aa1d-f8bb-4277-8a43-8f3044af10a9"];
     // The rest of your application:didFinishLaunchingWithOptions method// ...
