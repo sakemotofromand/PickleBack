@@ -83,6 +83,7 @@
         clearButton.hidden = FALSE;
         itemText.hidden = TRUE;
         headerInfo.text = @"Enter drinks";
+        [confirmButton setTitle:@"No Drinks to Tally" forState:UIControlStateNormal];
     }
 }
 
@@ -284,6 +285,7 @@
     winesLabel.text = @"0";
     mixedLabel.text = @"0";
     shotsLabel.text = @"0";
+    [confirmButton setTitle:@"No Drinks to Tally" forState:UIControlStateNormal];
     appDelegate.tabBar.selectedIndex = 0;
 }
 
@@ -317,7 +319,7 @@
 - (IBAction)clearValues:(UIButton*) sender
 {
     [TestFlight passCheckpoint:@"CLEAR_VALUES"];
-    [confirmButton setImage:[UIImage imageNamed:@"NoDrinksToTally.png"] forState:UIControlStateNormal];
+    [confirmButton setTitle:@"No Drinks to Tally" forState:UIControlStateNormal];
     drinksValue[0] = 0;
     drinksValue[1] = 0;
     drinksValue[2] = 0;
@@ -328,12 +330,20 @@
     shotsLabel.text = @"0";
     
 }
+- (IBAction)touchDown:(UIButton*) sender {
+    sender.highlighted = TRUE;
+}
 
-- (IBAction)addDrink:(UIButton*) sender
-{
+- (IBAction)touchUp:(UIButton*) sender {
+    sender.highlighted = false;
+}
+
+- (IBAction)addDrink:(UIButton*) sender {
     [TestFlight passCheckpoint:@"ADD_DRINK"];
     drinksValue[sender.tag] = drinksValue[sender.tag] + 1;
     //[confirmButton setImage:[UIImage imageNamed:@"TallyDrinksButton.png"] forState:UIControlStateNormal];
+    [confirmButton setTitle:@"Confirm" forState:UIControlStateNormal];
+
     switch (sender.tag)
     {
         case 0:

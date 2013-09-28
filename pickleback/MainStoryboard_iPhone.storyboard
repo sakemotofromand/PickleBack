@@ -101,6 +101,8 @@
                                 </state>
                                 <connections>
                                     <action selector="addDrink:" destination="L1X-Pf-6Mg" eventType="touchUpInside" id="tpZ-kJ-5AI"/>
+                                    <action selector="touchDown:" destination="L1X-Pf-6Mg" eventType="touchDown" id="Lk7-M7-5we"/>
+                                    <action selector="touchUp:" destination="L1X-Pf-6Mg" eventType="touchUpInside" id="NUl-om-fkn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q2J-21-JTJ">

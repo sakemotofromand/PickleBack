@@ -18,7 +18,6 @@
 		03D1004D16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */; };
 		03D1004E16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */; };
 		03D1006016EC63620005A1A9 /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */; };
-		4961C3EC1764D3C200B501DF /* FinishSessionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4961C3EB1764D3C100B501DF /* FinishSessionButton.png */; };
 		4994875517B5B898006C670F /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4994875117B5B898006C670F /* libTestFlight.a */; };
 		4994875617B5B898006C670F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4994875217B5B898006C670F /* README.md */; };
 		4994875717B5B898006C670F /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4994875317B5B898006C670F /* release_notes.md */; };
@@ -32,14 +31,11 @@
 		499696F117E01878004D5A20 /* User-Male-Alt-Vector@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 499696EF17E01878004D5A20 /* User-Male-Alt-Vector@2x.png */; };
 		499696F417E01889004D5A20 /* Clock-Vector.png in Resources */ = {isa = PBXBuildFile; fileRef = 499696F217E01889004D5A20 /* Clock-Vector.png */; };
 		499696F517E01889004D5A20 /* Clock-Vector@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 499696F317E01889004D5A20 /* Clock-Vector@2x.png */; };
-		499696F917E537C9004D5A20 /* NoDrinksToTally.png in Resources */ = {isa = PBXBuildFile; fileRef = 499696F817E537C9004D5A20 /* NoDrinksToTally.png */; };
 		499FAC90175BEBC600974A8D /* BeerMugButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC88175BEBC600974A8D /* BeerMugButton.png */; };
-		499FAC91175BEBC600974A8D /* CancelSessionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC89175BEBC600974A8D /* CancelSessionButton.png */; };
 		499FAC92175BEBC600974A8D /* ClassicCocktailButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC8A175BEBC600974A8D /* ClassicCocktailButton.png */; };
 		499FAC93175BEBC600974A8D /* SettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC8B175BEBC600974A8D /* SettingsButton.png */; };
 		499FAC94175BEBC600974A8D /* ShotButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC8C175BEBC600974A8D /* ShotButton.png */; };
 		499FAC95175BEBC600974A8D /* StartSessionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC8D175BEBC600974A8D /* StartSessionButton.png */; };
-		499FAC96175BEBC600974A8D /* TallyDrinksButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC8E175BEBC600974A8D /* TallyDrinksButton.png */; };
 		499FAC97175BEBC600974A8D /* WineGlassButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FAC8F175BEBC600974A8D /* WineGlassButton.png */; };
 		499FACAE175D5B4100974A8D /* MeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 499FACA8175D5B4100974A8D /* MeIcon.png */; };
 		49EE229517E013CD00738FDC /* DrinkTally.png in Resources */ = {isa = PBXBuildFile; fileRef = 49EE229417E013CD00738FDC /* DrinkTally.png */; };
@@ -79,7 +75,6 @@
 		03D1004B16EC5A680005A1A9 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		03D1004C16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		03D1005F16EC63620005A1A9 /* WindowsAzureMobileServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WindowsAzureMobileServices.framework; sourceTree = "<group>"; };
-		4961C3EB1764D3C100B501DF /* FinishSessionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinishSessionButton.png; sourceTree = "<group>"; };
 		4994875117B5B898006C670F /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		4994875217B5B898006C670F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4994875317B5B898006C670F /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -94,14 +89,11 @@
 		499696EF17E01878004D5A20 /* User-Male-Alt-Vector@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "User-Male-Alt-Vector@2x.png"; sourceTree = "<group>"; };
 		499696F217E01889004D5A20 /* Clock-Vector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clock-Vector.png"; sourceTree = "<group>"; };
 		499696F317E01889004D5A20 /* Clock-Vector@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clock-Vector@2x.png"; sourceTree = "<group>"; };
-		499696F817E537C9004D5A20 /* NoDrinksToTally.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoDrinksToTally.png; sourceTree = "<group>"; };
 		499FAC88175BEBC600974A8D /* BeerMugButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeerMugButton.png; sourceTree = "<group>"; };
-		499FAC89175BEBC600974A8D /* CancelSessionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CancelSessionButton.png; sourceTree = "<group>"; };
 		499FAC8A175BEBC600974A8D /* ClassicCocktailButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClassicCocktailButton.png; sourceTree = "<group>"; };
 		499FAC8B175BEBC600974A8D /* SettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsButton.png; sourceTree = "<group>"; };
 		499FAC8C175BEBC600974A8D /* ShotButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShotButton.png; sourceTree = "<group>"; };
 		499FAC8D175BEBC600974A8D /* StartSessionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartSessionButton.png; sourceTree = "<group>"; };
-		499FAC8E175BEBC600974A8D /* TallyDrinksButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TallyDrinksButton.png; sourceTree = "<group>"; };
 		499FAC8F175BEBC600974A8D /* WineGlassButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WineGlassButton.png; sourceTree = "<group>"; };
 		499FACA8175D5B4100974A8D /* MeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeIcon.png; sourceTree = "<group>"; };
 		49EE229417E013CD00738FDC /* DrinkTally.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkTally.png; sourceTree = "<group>"; };
@@ -216,7 +208,6 @@
 		03D1002416EC579A0005A1A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				499696F817E537C9004D5A20 /* NoDrinksToTally.png */,
 				499696F217E01889004D5A20 /* Clock-Vector.png */,
 				499696F317E01889004D5A20 /* Clock-Vector@2x.png */,
 				499696EE17E01878004D5A20 /* User-Male-Alt-Vector.png */,
@@ -227,14 +218,11 @@
 				49949CAD176E13000084FE3B /* Help-Button-Settings.png */,
 				49949CAB176E115C0084FE3B /* topBar.png */,
 				499FACA8175D5B4100974A8D /* MeIcon.png */,
-				4961C3EB1764D3C100B501DF /* FinishSessionButton.png */,
 				499FAC88175BEBC600974A8D /* BeerMugButton.png */,
-				499FAC89175BEBC600974A8D /* CancelSessionButton.png */,
 				499FAC8A175BEBC600974A8D /* ClassicCocktailButton.png */,
 				499FAC8B175BEBC600974A8D /* SettingsButton.png */,
 				499FAC8C175BEBC600974A8D /* ShotButton.png */,
 				499FAC8D175BEBC600974A8D /* StartSessionButton.png */,
-				499FAC8E175BEBC600974A8D /* TallyDrinksButton.png */,
 				499FAC8F175BEBC600974A8D /* WineGlassButton.png */,
 				03D1002516EC579A0005A1A9 /* Drink Tally-Info.plist */,
 				03D1002616EC579A0005A1A9 /* InfoPlist.strings */,
@@ -338,15 +326,12 @@
 				03D1004E16EC5A680005A1A9 /* MainStoryboard_iPad.storyboard in Resources */,
 				75B1688A1731CF7A004710A8 /* pickleback.db in Resources */,
 				499FAC90175BEBC600974A8D /* BeerMugButton.png in Resources */,
-				499FAC91175BEBC600974A8D /* CancelSessionButton.png in Resources */,
 				499FAC92175BEBC600974A8D /* ClassicCocktailButton.png in Resources */,
 				499FAC93175BEBC600974A8D /* SettingsButton.png in Resources */,
 				499FAC94175BEBC600974A8D /* ShotButton.png in Resources */,
 				499FAC95175BEBC600974A8D /* StartSessionButton.png in Resources */,
-				499FAC96175BEBC600974A8D /* TallyDrinksButton.png in Resources */,
 				499FAC97175BEBC600974A8D /* WineGlassButton.png in Resources */,
 				499FACAE175D5B4100974A8D /* MeIcon.png in Resources */,
-				4961C3EC1764D3C200B501DF /* FinishSessionButton.png in Resources */,
 				49949CAC176E115C0084FE3B /* topBar.png in Resources */,
 				49949CAE176E13000084FE3B /* Help-Button-Settings.png in Resources */,
 				49949CB0176E14510084FE3B /* settingsIcon.png in Resources */,
@@ -363,7 +348,6 @@
 				499696F117E01878004D5A20 /* User-Male-Alt-Vector@2x.png in Resources */,
 				499696F417E01889004D5A20 /* Clock-Vector.png in Resources */,
 				499696F517E01889004D5A20 /* Clock-Vector@2x.png in Resources */,
-				499696F917E537C9004D5A20 /* NoDrinksToTally.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
